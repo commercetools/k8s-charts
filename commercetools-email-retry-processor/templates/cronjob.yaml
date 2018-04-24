@@ -1,0 +1,26 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Values.name }}
+spec:
+  schedule: {{ .Values.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            appVersion: {{ .Values.image.tag }}
+        spec:
+          restartPolicy: {{ .Values.restartPolicy }}
+          containers:
+            - name: {{ .Values.name }}
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              env:
+              - name: CTP_PROJECT_CONFIG
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ .Values.name }}
+                    key: ctp_project_config
+              resources:
+{{ toYaml .Values.resources | indent 10 }}
