@@ -18,7 +18,7 @@ resources: {}
 schedule: '*/1 * * * *'
 
 # non sensitive environment variables
-nonSensitiveEnvs:
+nonSensitiveEnvs: {}
 
 # sensitive environment variables
-sensitiveEnvs:
+sensitiveEnvs: {}
