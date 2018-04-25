@@ -11,7 +11,21 @@ This chart will do the following:
 
 * Deploy an instance of logentries as a DaemonSet on all nodes of a K8s cluster.
 
-### Installing the Chart
+### Verification
+
+Lint the chart
+
+```
+$ helm lint
+```
+
+To test the generated k8s resources from the helm chart
+
+```
+$ helm upgrade --install --dry-run --debug my-new-chart  .
+```
+
+### Installation
 
 To install the chart with the release name `my-logentries` using a dedicated namespace(recommended):
 
