@@ -13,3 +13,6 @@ file.
 The static analysis currently:
 
 * Performs `helm lint` on any changed charts to provide quick feedback
+
+## Note
+Testing is inspired by https://github.com/kubernetes/charts
