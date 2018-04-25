@@ -1,7 +1,7 @@
 ## restart policy for all containers
 restartPolicy: Never
-name: commercetools-email-retry-processor
 image:
+  name: commercetools-email-retry-processor
   repository: commercetools/commercetools-email-retry-processor
   tag: 1.0.0
   pullPolicy: IfNotPresent

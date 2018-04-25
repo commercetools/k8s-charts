@@ -9,11 +9,12 @@ spec:
       template:
         metadata:
           labels:
+            app: {{ .Values.image.name }}
             appVersion: {{ .Values.image.tag }}
         spec:
           restartPolicy: {{ .Values.restartPolicy }}
           containers:
-            - name: {{ .Values.name }}
+            - name: {{ .Values.image.name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               env:
