@@ -18,10 +18,11 @@ spec:
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               # Inject (non sensitive) environment variables from the `Values` config.
-              env: {{- range $key, $val := .Values.nonSensitiveEnvs }}
+              env:
+              {{- range $key, $val := .Values.nonSensitiveEnvs }}
               - name: {{ $key }}
                 value: {{ $val | quote }}
-                {{- end}}
+              {{- end}}
               # Inject (sensitive) environment variables from `Values` config, referring
               # them from the related Secret object. This is an extra measure of security
               # to avoid having credentials displayed in plain text in the template file.
@@ -33,6 +34,6 @@ spec:
                   secretKeyRef:
                     name: {{ $chartName }}-secret
                     key: {{ $key }}
-                {{- end}}
+              {{- end}}
               resources:
-{{ toYaml .Values.resources | indent 10 }}
+{{ toYaml .Values.resources | indent 8 }}
