@@ -1,0 +1,14 @@
+## restart policy for all containers
+restartPolicy: Never
+image:
+  name: logentries
+  repository: logentries/docker-logentries
+  tag: 0.2.0
+  pullPolicy: IfNotPresent
+
+# non sensitive environment variables
+nonSensitiveEnvs:
+
+# sensitive environment variables
+sensitiveEnvs:
+   logentriesToken: dummyToken

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.image.name }}
+  template:
+    metadata:
+      name: {{ .Values.image.name }}
+      labels:
+        app: {{ .Values.image.name }}
+        appVersion: {{ .Values.image.tag }}
+    spec:
+      containers:
+      - name: {{ .Values.image.name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          privileged: true
+        args:
+          - "-t $LOGENTRIES_TOKEN"
+          - "-j"
+          - "--no-stats"
+          - "--matchByImage ^commercetools\\/{{ .Values.name }}.*"
+          - "--no-dockerEvents"
+        volumeMounts:
+        - name: socket
+          mountPath: /var/run/docker.sock
+        env: {{- range $key, $val := .Values.nonSensitiveEnvs }}
+        - name: {{ $key }}
+          value: {{ $val | quote }}
+          {{- end}}
+        # Inject (sensitive) environment variables from `Values` config, referring
+        # them from the related Secret object. This is an extra measure of security
+        # to avoid having credentials displayed in plain text in the template file.
+        # https://kubernetes.io/docs/concepts/configuration/secret/
+        {{- $chartName := .Chart.Name -}}
+        {{- range $key, $val := .Values.sensitiveEnvs }}
+        - name: {{ $key }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ $chartName }}-secret
+              key: {{ $key }}
+          {{- end}}
+      volumes:
+        - name: socket
+          hostPath:
+            path: /var/run/docker.sock

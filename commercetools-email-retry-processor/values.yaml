@@ -21,4 +21,3 @@ schedule: "*/1 * * * *"
 
 
 ctpProjectConfig: dummyConfig
-logentriesToken: dummyToken
