@@ -36,4 +36,4 @@ spec:
                     key: {{ $key }}
               {{- end}}
               resources:
-{{ toYaml .Values.resources | indent 8 }}
+{{ toYaml .Values.resources | indent 16 }}
