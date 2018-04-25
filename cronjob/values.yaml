@@ -1,14 +1,12 @@
-## restart policy for all containers
 restartPolicy: Never
 image:
-  name: commercetools-email-retry-processor
-  repository: commercetools/commercetools-email-retry-processor
-  tag: 1.0.0
-  pullPolicy: IfNotPresent
+  name: ''
+  repository: ''
+  tag: ''
+  pullPolicy: 'ifNotPresent'
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-
 resources: {}
 #  requests:
 #    cpu: 50m
@@ -17,11 +15,10 @@ resources: {}
 #    cpu: 150m
 #    memory: 512Mi
 
-schedule: "*/1 * * * *"
+schedule: '*/1 * * * *'
 
 # non sensitive environment variables
 nonSensitiveEnvs:
 
 # sensitive environment variables
 sensitiveEnvs:
-   ctpProjectConfig: dummyConfig
