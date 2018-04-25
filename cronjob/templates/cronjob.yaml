@@ -12,7 +12,7 @@ spec:
             app: {{ .Values.image.name }}
             appVersion: {{ .Values.image.tag }}
         spec:
-          restartPolicy: {{ .Values.restartPolicy }}
+          restartPolicy: Never
           containers:
             - name: {{ .Values.image.name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

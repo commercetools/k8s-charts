@@ -1,4 +1,3 @@
-restartPolicy: Never
 image:
   name: ''
   repository: ''
