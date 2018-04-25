@@ -19,5 +19,9 @@ image:
 
 schedule: "*/1 * * * *"
 
+# non sensitive environment variables
+nonSensitiveEnvs:
 
-ctpProjectConfig: dummyConfig
+# sensitive environment variables
+sensitiveEnvs:
+   ctpProjectConfig: dummyConfig

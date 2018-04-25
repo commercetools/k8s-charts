@@ -17,11 +17,22 @@ spec:
             - name: {{ .Values.image.name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
-              env:
-              - name: CTP_PROJECT_CONFIG
+              # Inject (non sensitive) environment variables from the `Values` config.
+              env: {{- range $key, $val := .Values.nonSensitiveEnvs }}
+              - name: {{ $key }}
+                value: {{ $val | quote }}
+                {{- end}}
+              # Inject (sensitive) environment variables from `Values` config, referring
+              # them from the related Secret object. This is an extra measure of security
+              # to avoid having credentials displayed in plain text in the template file.
+              # https://kubernetes.io/docs/concepts/configuration/secret/
+              {{- $chartName := .Chart.Name -}}
+              {{- range $key, $val := .Values.sensitiveEnvs }}
+              - name: {{ $key }}
                 valueFrom:
                   secretKeyRef:
-                    name: {{ .Values.name }}
-                    key: ctp_project_config
+                    name: {{ $chartName }}-secret
+                    key: {{ $key }}
+                {{- end}}
               resources:
 {{ toYaml .Values.resources | indent 10 }}
