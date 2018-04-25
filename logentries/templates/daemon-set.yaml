@@ -5,10 +5,10 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.image.name }}
+      app: {{ .Chart.Name }}
   template:
     metadata:
-      name: {{ .Values.image.name }}
+      name: {{ .Chart.Name }}
       labels:
         app: {{ .Values.image.name }}
         appVersion: {{ .Values.image.tag }}
@@ -21,29 +21,18 @@ spec:
           privileged: true
         args:
           - "-t $LOGENTRIES_TOKEN"
-          - "-j"
-          - "--no-stats"
-          - "--matchByImage ^commercetools\\/{{ .Values.name }}.*"
-          - "--no-dockerEvents"
+        {{- range $val := .Values.args }}
+          - {{ $val | quote }}
+        {{- end}}
         volumeMounts:
         - name: socket
           mountPath: /var/run/docker.sock
-        env: {{- range $key, $val := .Values.nonSensitiveEnvs }}
-        - name: {{ $key }}
-          value: {{ $val | quote }}
-          {{- end}}
-        # Inject (sensitive) environment variables from `Values` config, referring
-        # them from the related Secret object. This is an extra measure of security
-        # to avoid having credentials displayed in plain text in the template file.
-        # https://kubernetes.io/docs/concepts/configuration/secret/
-        {{- $chartName := .Chart.Name -}}
-        {{- range $key, $val := .Values.sensitiveEnvs }}
-        - name: {{ $key }}
+        env:
+        - name: LOGENTRIES_TOKEN
           valueFrom:
             secretKeyRef:
-              name: {{ $chartName }}-secret
-              key: {{ $key }}
-          {{- end}}
+              name: {{ .Chart.Name }}-secret
+              key: logentries_token
       volumes:
         - name: socket
           hostPath:
