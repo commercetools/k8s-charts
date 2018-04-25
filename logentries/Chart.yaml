@@ -1,5 +1,0 @@
-apiVersion: v1
-description: Helm chart for deploying an instance of logentries on a K8s cluster.
-name: logentries
-version: 0.0.1
-sources:
