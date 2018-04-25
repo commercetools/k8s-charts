@@ -9,7 +9,7 @@ image:
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 
-#resources:
+resources: {}
 #  requests:
 #    cpu: 50m
 #    memory: 256Mi
