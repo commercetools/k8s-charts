@@ -37,7 +37,7 @@ yamllinter() {
   # If a Chart.yaml file is present lint it. Otherwise report an error
   # because one should exist
   if [ -e $1/Chart.yaml ]; then
-    run yamllint -c test/circle/lintconf.yml $1/Chart.yaml
+    run yamllint -c test/travis/lintconf.yml $1/Chart.yaml
   else
     echo "Error $1/Chart.yaml file is missing"
     exitCode=1
@@ -46,7 +46,7 @@ yamllinter() {
   # If a values.yaml file is present lint it. Otherwise report an error
   # because one should exist
   if [ -e $1/values.yaml ]; then
-    run yamllint -c test/circle/lintconf.yml $1/values.yaml
+    run yamllint -c test/travis/lintconf.yml $1/values.yaml
   else
     echo "Error $1/values.yaml file is missing"
     exitCode=1
@@ -56,7 +56,7 @@ yamllinter() {
 # Validate the Chart.yaml
 validate_chart_yaml() {
 
-  run yamale -s test/circle/yaml-schemas/Chart.yaml ${1}/Chart.yaml
+  run yamale -s test/travis/yaml-schemas/Chart.yaml ${1}/Chart.yaml
 
   echo "Validating maintainers names"
 
