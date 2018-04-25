@@ -17,6 +17,13 @@
 # this PR/changeset is introducing. Making sure the comparison is to the
 # upstream charts repo rather than a fork.
 
+##
+## NOTIICE:
+## Modification done for commercetools
+## - change public git repo
+## - change path test/circle to test/travis
+##
+
 exitCode=0
 
 # Run is a wrapper around the execution of functions. It captures non-zero exit
@@ -72,6 +79,9 @@ validate_chart_yaml() {
 curDir="$(dirname "$0")"
 source "$curDir/../semvercompare.sh"
 if [[ -z ${1} ]]; then
+  ##
+  ## NOTICE: public repository changed by svenmueller
+  ##
   git remote add k8s git@github.com:commercetools/k8s-charts.git
   git fetch k8s master
   CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) charts/ | awk -F/ '{print $1"/"$2}' | uniq`
