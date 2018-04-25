@@ -9,7 +9,7 @@
 
 This chart will do the following:
 
-* Implement a dynamically scalable logentries cluster using Kubernetes
+* Deploy an instance of logentries as a DaemonSet on all nodes of a K8s cluster.
 
 ### Installing the Chart
 
@@ -21,11 +21,15 @@ $ helm install --name my-logentries--namespace logentries .
 
 The chart can be customized using the following configurable parameters:
 
-| Parameter                       | Description                                                     | Default                      |
-| ------------------------------- | ----------------------------------------------------------------| -----------------------------|
-| `image.repository`              | docker image name                                  | `logentries/docker-logentries` |
-| `image.tag`                     | docker image tag                                   | `1.0.0`                   |
-| `image.pullPolicy`              | docker image pull policy                                 | `IfNotPresent`                     |
+| Parameter                       | Description                                                                                                                                        | Default                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------| ---------------------------------|
+| `image.name`                    | docker image name                                                                                                                                  | `logentries`                     |
+| `image.repository`              | docker image repository                                                                                                                            | `logentries/docker-logentries`   |
+| `image.tag`                     | docker image tag                                                                                                                                   | `0.2.0`                          |
+| `image.pullPolicy`              | docker image pull policy                                                                                                                           | `IfNotPresent`                   |
+| `logentriesToken`               | token needed for the logentries set                                                                                                                | ``                               |
+| `args`                          | [arguments](https://docs.logentries.com/docs/docker-logentries-container/#section-configuration) for running logentries.                           | `-j --no-stats --no-dockerEvents`|
+
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`
 
