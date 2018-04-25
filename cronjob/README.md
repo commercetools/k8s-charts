@@ -2,7 +2,18 @@
 
 Helm chart for deploying an instance of a cronjob on a K8s cluster.
 
-## Pre Requisites:
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Pre Requisites](#pre-requisites)
+- [Chart Details](#chart-details)
+  - [Verification](#verification)
+  - [Installation](#installation)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Pre Requisites
 
 * Kubernetes 1.8+ with beta APIs enabled
 
@@ -12,7 +23,22 @@ This chart will do the following:
 
 * Implement a customizable cronjob using Kubernetes
 
-### Installing the Chart
+
+### Verification
+
+Lint the chart
+
+```
+$ helm lint
+```
+
+To test the generated k8s resources from the helm chart
+
+```
+$ helm upgrade --install --dry-run --debug my-new-chart  .
+```
+
+### Installation
 
 To install the chart with the release name `my-cronjob` using a dedicated namespace(recommended):
 
