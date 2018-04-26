@@ -2,7 +2,7 @@ image:
   name: ''
   repository: ''
   tag: ''
-  pullPolicy: 'IfNotPresent
+  pullPolicy: 'IfNotPresent'
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
