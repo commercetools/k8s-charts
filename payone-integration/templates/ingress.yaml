@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+spec:
+  backend:
+    serviceName: {{ .Chart.Name }}
+    servicePort: {{ .Values.service.externalPort }}

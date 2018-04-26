@@ -1,0 +1,29 @@
+image:
+  name: payone-integration-service
+  repository: registry.hub.docker.com/sphereio/commercetools-payone-integration
+  tag: v2.3.1
+  pullPolicy: IfNotPresent
+
+containerName: payone-integration
+
+service:
+  type: NodePort
+  externalPort: 80
+  internalPort: 8080
+
+rollingUpdateStrategy:
+  maxSurge: 1
+  maxUnavailable: 0
+
+portName: backend-port
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 300Mi
+  limits:
+    cpu: 100m
+    memory: 400Mi
+
+ingress:
+  annotations: ''
