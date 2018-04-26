@@ -4,6 +4,7 @@ metadata:
   name: {{ .Chart.Name }}
 spec:
   schedule: {{ .Values.schedule | quote }}
+  concurrencyPolicy: {{ .Values.concurrency }}
   jobTemplate:
     spec:
       template:
