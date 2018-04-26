@@ -1,7 +1,12 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ template cronjob.name . }}
+  labels:
+    app: {{ template "cronjob.name" . }}
+    chart: {{ template "cronjob.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   schedule: {{ .Values.schedule | quote }}
   concurrencyPolicy: {{ .Values.concurrency }}
@@ -10,8 +15,8 @@ spec:
       template:
         metadata:
           labels:
-            app: {{ .Values.image.name }}
-            appVersion: {{ .Values.image.tag }}
+            app: {{ template "cronjob.name" . }}
+            release: {{ .Release.Name }}
         spec:
           restartPolicy: Never
           containers:
@@ -28,7 +33,7 @@ spec:
               # them from the related Secret object. This is an extra measure of security
               # to avoid having credentials displayed in plain text in the template file.
               # https://kubernetes.io/docs/concepts/configuration/secret/
-              {{- $chartName := .Chart.Name -}}
+              {{- $chartName := include cronjob.name . -}}
               {{- range $key, $val := .Values.sensitiveEnvs }}
               - name: {{ $key }}
                 valueFrom:
