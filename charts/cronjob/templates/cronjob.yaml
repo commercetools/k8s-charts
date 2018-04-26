@@ -20,8 +20,8 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-            - name: {{ .Values.image.name }}
-              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+            - name: {{ .Chart.Name }}
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               # Inject (non sensitive) environment variables from the `Values` config.
               env:
