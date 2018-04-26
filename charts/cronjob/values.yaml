@@ -14,6 +14,8 @@ resources: {}
 #    cpu: 150m
 #    memory: 512Mi
 
+# It takes a Cron format string, e.g. 0 * * * * or @hourly,
+# as schedule time of its jobs to be created and executed
 schedule: '*/1 * * * *'
 
 # non sensitive environment variables
