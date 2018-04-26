@@ -41,7 +41,6 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter                       | Description              | Default                             |
 | ------------------------------- | -------------------------| ------------------------------------|
-| `image.name`                    | docker image name        | `commercetools-payone-integration`  |
 | `image.repository`              | docker image repository  | `registry.hub.docker.com/sphereio/` |
 | `image.tag`                     | docker image tag         | `v2.3.1`                            |
 | `image.pullPolicy`              | docker image pull policy | `IfNotPresent`                      |

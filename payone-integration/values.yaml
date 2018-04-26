@@ -1,5 +1,4 @@
 image:
-  name: payone-integration-service
   repository: registry.hub.docker.com/sphereio/commercetools-payone-integration
   tag: v2.3.1
   pullPolicy: IfNotPresent
