@@ -1,0 +1,12 @@
+sudo: required
+
+language: python
+python:
+  - "3.6.4"
+  
+jobs:
+  include:
+    - stage: install
+      script: test/travis/install.sh
+    - stage: lint
+      script: test/travis/lint.sh
