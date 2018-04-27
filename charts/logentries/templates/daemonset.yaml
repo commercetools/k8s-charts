@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ template "logentries.fullname" . }}
   labels:
-      app: {{ .Chart.Name }}
+      app: {{ template "logentries.name" . }}
       chart: {{ template "logentries.chart" . }}
       release: {{ .Release.Name }}
       heritage: {{ .Release.Service }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ template "logentries.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
-      name: {{ .Chart.Name }}
       labels:
-        app: {{ .Chart.Name }}
-        appVersion: {{ .Values.image.tag }}
+        app: {{ template "logentries.name" . }}
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
@@ -36,7 +36,7 @@ spec:
         - name: LOGENTRIES_TOKEN
           valueFrom:
             secretKeyRef:
-              name: {{ .Chart.Name }}-secret
+              name: {{ template "logentries.name" . }}-secret
               key: logentries_token
       volumes:
         - name: socket
