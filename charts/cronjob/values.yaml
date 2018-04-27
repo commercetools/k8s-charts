@@ -24,7 +24,7 @@ nonSensitiveEnvs: {}
 sensitiveEnvs: {}
 
 # specifies how to treat concurrent executions of a job created by this cron job
-concurrency: Forbid# These fields specify how many completed and failed jobs should be kept.
+concurrency: Allow
 
 # These fields specify how many completed and failed jobs should be kept.
 successfulJobsHistoryLimit: 5
