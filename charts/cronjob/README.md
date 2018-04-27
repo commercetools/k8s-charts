@@ -43,7 +43,7 @@ $ helm upgrade --install --dry-run --debug my-new-chart  .
 To install the chart with the release name `my-cronjob` using a dedicated namespace(recommended):
 
 ```
-$ helm install --name my-cronjob --namespace cronjob .
+$ helm upgrade --install my-cronjob --namespace cronjobs .
 ```
 
 The chart can be customized using the following configurable parameters:
@@ -65,6 +65,6 @@ Specify parameters using `--set key=value[,key=value]` argument to `helm install
 Alternatively a YAML file that specifies the values for the parameters can be provided like this:
 
 ```bash
-$ helm install --name my-cronjob -f values.yaml .
+$ helm upgrade --install my-cronjob --namespace cronjobs -f values.yaml .
 ```
 

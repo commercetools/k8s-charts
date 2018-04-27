@@ -6,7 +6,7 @@ python:
   
 jobs:
   include:
-    - stage: install
-      script: test/travis/install.sh
     - stage: lint
-      script: test/travis/lint.sh
+      script:
+        - test/travis/install.sh
+        - test/travis/lint.sh
