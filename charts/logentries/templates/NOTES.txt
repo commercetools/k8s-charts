@@ -1,6 +1,6 @@
 The logentries/docker-logentries utility is now running on all Kubernetes cluster nodes.
 
-To access the DaemonSet, run 'kubectl get ds --namespace {{ .Release.Namespace }} {{ template "logentries.name" . }}'
-To access the Pod(s), run 'kubectl get pods --namespace {{ .Release.Namespace }} -l daemonset={{ template "logentries.name" . }}'
+To access the DaemonSet, run 'kubectl get ds --namespace {{ .Release.Namespace }} {{ template "logentries.fullname" . }}'
+To access the Pod(s), run 'kubectl get pods --namespace {{ .Release.Namespace }} -l daemonset={{ template "logentries.fullname" . }}'
 
 For more information on configuration possibilities of this utility, visit: https://github.com/rapid7/docker-logentries
