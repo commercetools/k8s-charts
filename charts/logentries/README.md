@@ -50,6 +50,6 @@ Specify parameters using `--set key=value[,key=value]` argument to `helm install
 Alternatively a YAML file that specifies the values for the parameters can be provided like this:
 
 ```bash
-$ helm install --name my-logentries -f values.yaml .
+$ helm upgrade --install my-logentries --namespace logentries -f values.yaml .
 ```
 
