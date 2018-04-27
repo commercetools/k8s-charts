@@ -21,7 +21,7 @@ Helm chart for deploying an instance of a cronjob on a K8s cluster.
 
 This chart will do the following:
 
-* Implement a customizable cronjob using Kubernetes
+* Implement a customizable cronjob using Kubernetes:
 
 
 ### Verification
@@ -32,7 +32,7 @@ Lint the chart
 $ helm lint
 ```
 
-To test the generated k8s resources from the helm chart
+To test the generated k8s resources from the helm chart:
 
 ```
 $ helm upgrade --install --dry-run --debug my-new-chart  .
