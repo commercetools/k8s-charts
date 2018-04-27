@@ -2,6 +2,11 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: {{ .Chart.Name }}
+  labels:
+      app: {{ .Chart.Name }}
+      chart: {{ template "logentries.chart" . }}
+      release: {{ .Release.Name }}
+      heritage: {{ .Release.Service }}
 spec:
   selector:
     matchLabels:
@@ -10,11 +15,11 @@ spec:
     metadata:
       name: {{ .Chart.Name }}
       labels:
-        app: {{ .Values.image.name }}
+        app: {{ .Chart.Name }}
         appVersion: {{ .Values.image.tag }}
     spec:
       containers:
-      - name: {{ .Values.image.name }}
+      - name: {{ .Chart.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         securityContext:

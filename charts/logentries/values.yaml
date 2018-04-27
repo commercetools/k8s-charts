@@ -1,5 +1,4 @@
 image:
-  name: logentries
   repository: logentries/docker-logentries
   tag: 0.2.0
   pullPolicy: IfNotPresent
