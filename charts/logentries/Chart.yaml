@@ -3,5 +3,8 @@ description: Helm chart for deploying an instance of logentries as a DaemonSet o
 name: logentries
 version: 1.0.0
 appVersion: 0.2.0
+home: https://github.com/rapid7/docker-logentries
+sources:
+  - https://github.com/rapid7/docker-logentries
 maintainers:
   - name: heshamMassoud
