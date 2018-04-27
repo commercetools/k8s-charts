@@ -1,0 +1,12 @@
+image:
+  repository: 'logentries/docker-logentries'
+  tag: '0.2.0'
+  pullPolicy: 'IfNotPresent'
+
+logentriesToken: ''
+
+# specifies the arguments for running the logentries docker container.
+args:
+  - "-j"
+  - "--no-stats"
+  - "--no-dockerEvents"
