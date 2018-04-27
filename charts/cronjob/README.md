@@ -40,7 +40,7 @@ $ helm upgrade --install --dry-run --debug my-new-chart  .
 
 ### Installation
 
-To install the chart with the release name `my-cronjob` using a dedicated namespace(recommended):
+To install the chart with the release name `my-cronjob` using a dedicated namespace (recommended):
 
 ```
 $ helm upgrade --install my-cronjob --namespace cronjobs .

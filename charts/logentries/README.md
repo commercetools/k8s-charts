@@ -27,7 +27,7 @@ $ helm upgrade --install --dry-run --debug my-new-chart  .
 
 ### Installation
 
-To install the chart with the release name `my-logentries` using a dedicated namespace(recommended):
+To install the chart with the release name `my-logentries` using a dedicated namespace (recommended):
 
 ```
 $ helm install --name my-logentries --namespace logentries .
