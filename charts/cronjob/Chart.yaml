@@ -3,5 +3,5 @@ description: Helm chart for deploying an instance of a cronjob on a K8s cluster.
 name: cronjob
 version: 1.0.0
 appVersion: 1.0.0
-home:
+home: https://github.com/commercetools/k8s-charts
 
