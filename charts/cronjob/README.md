@@ -58,6 +58,8 @@ The chart can be customized using the following configurable parameters:
 | `nonSensitiveEnvs` | non sensitive environment variables | |
 | `sensitiveEnvs` | sensitive environment variables | |
 | `concurrency` | specifies how to treat concurrent executions of a job created by this cron job | `Forbid` |
+| `successfulJobsHistoryLimit` | Cron job successfulJobsHistoryLimit | 5 |
+| `failedJobsHistoryLimit` | Cron job failedJobsHistoryLimit | 5 |
 
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`
