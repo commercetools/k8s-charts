@@ -42,12 +42,12 @@ spec:
         # them from the related Secret object. This is an extra measure of security
         # to avoid having credentials displayed in plain text in the template file.
         # https://kubernetes.io/docs/concepts/configuration/secret/
-        {{- $chartName := .Chart.Name -}}
+        {{- $chartName := include "payment.fullname" . -}}
         {{- range $key, $val := .Values.sensitiveEnvs }}
         - name: {{ $key }}
           valueFrom:
             secretKeyRef:
-              name: {{ template "payment.name" . }}-secret
+              name: {{ $chartName }}-secret
               key: {{ $key }}
         {{- end}}
         livenessProbe:
