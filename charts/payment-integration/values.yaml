@@ -1,6 +1,6 @@
 image:
-  repository: '' # either 'sphereio/commercetools-payone-integration' or 'commercetoolsps/commercetools-paypal-plus-integration/'
-  tag: '' # set tag here
+  repository: ''  # either 'sphereio/commercetools-payone-integration' or 'commercetoolsps/commercetools-paypal-plus-integration/'
+  tag: ''  # set tag here
   pullPolicy: IfNotPresent
 
 containerName: payment-integration

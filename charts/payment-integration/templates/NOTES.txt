@@ -1,0 +1,4 @@
+A payment service will run on all K8s cluster nodes.
+
+Since this template is intended to deploy one of Payone or PayPal Plus services -
+image.repository and image.tag values must be provided explicitly during deployment process.
