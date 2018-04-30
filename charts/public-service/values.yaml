@@ -32,5 +32,10 @@ nonSensitiveEnvs: {}
 # sensitive environment variables
 sensitiveEnvs: {}
 
+## Ingress annotations
+##
 ingress:
-  annotations: ''
+  annotations: {}
+    # kubernetes.io/ingress.class: "nginx"
+    # secretName: my-tls-cert
+    # kubernetes.io/tls-acme: "true"
