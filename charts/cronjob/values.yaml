@@ -2,7 +2,7 @@ image:
   repository: 'commercetools/commercetools-email-retry-processor'
   tag: '1.0.0'
   pullPolicy: 'IfNotPresent'
-  command: []
+  command: ['cmd1', 'cmd2']
 
 ## specifies the resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
