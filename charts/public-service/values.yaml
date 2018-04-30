@@ -6,7 +6,7 @@ image:
 replicaCount: 1
 
 service:
-  type: NodePort
+  type: ClusterIP
   externalPort: 80
   internalPort: 8080
 
