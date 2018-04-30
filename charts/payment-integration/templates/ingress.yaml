@@ -11,5 +11,5 @@ metadata:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
   backend:
-    serviceName: {{ .Chart.Name }}
+    serviceName: {{ template "payment.fullname" . }}
     servicePort: {{ .Values.service.externalPort }}
