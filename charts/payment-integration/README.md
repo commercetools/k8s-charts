@@ -56,8 +56,8 @@ The chart can be customized using the following configurable parameters:
 | `image.repository`              | docker image repository             | ***mandatory***                     |
 | `image.tag`                     | docker image tag                    | ***mandatory***                     |
 | `image.pullPolicy`              | docker image pull policy            | `IfNotPresent`                      |
-| `nonSensitiveEnvs`              | non sensitive environment variables |                                     |
-| `sensitiveEnvs`                 | sensitive environment variables     |                                     |
+| `nonSensitiveEnvs`              | non sensitive environment variables | []                                  |
+| `sensitiveEnvs`                 | sensitive environment variables     | []                                  |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
