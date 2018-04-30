@@ -1,22 +1,23 @@
+# Publicly available Service Helm Chart
+
+Helm Chart for services which must be public available, like shops, payment integrations etc.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  
 
-- [Public available Service Helm Chart](#public-available-service-helm-chart)
-  - [Chart Details](#chart-details)
-    - [Verification](#verification)
-    - [Installation](#installation)
-    - [Service specific mandatory environment variables](#service-specific-mandatory-environment-variables)
-    - [Example](#example)
-    - [Known issues](#known-issues)
-      - [1. After service upgrade install `ImagePullBackOff` error is reported](#1-after-service-upgrade-install-imagepullbackoff-error-is-reported)
+
+- [Prerequisites](#prerequisites)
+- [Chart Details](#chart-details)
+  - [Verification](#verification)
+  - [Installation](#installation)
+  - [Service specific mandatory environment variables](#service-specific-mandatory-environment-variables)
+  - [Example](#example)
+  - [Known issues](#known-issues)
+    - [1. After service upgrade install `ImagePullBackOff` error is reported](#1-after-service-upgrade-install-imagepullbackoff-error-is-reported)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Public available Service Helm Chart
-
-This is the Helm Chart for services which must be public available, like shops, payment integrations etc.
-
+## Prerequisites
 
 * Kubernetes 1.8+ with beta APIs enabled
 
@@ -24,7 +25,7 @@ This is the Helm Chart for services which must be public available, like shops, 
 
 This chart will do the following:
 
-* Deploy an instance of the service (_Payone_ or _Paypal_) as on all nodes of a K8s cluster.
+* deploying an instance of a publicly available service on a K8s cluster (via HTTP from outside the cluster).
 
 ### Verification
 
@@ -96,7 +97,7 @@ $ helm upgrade --install \
 
 ### Known issues
 
-#### 1. After service upgrade install `ImagePullBackOff` error is reported
+#### After service upgrade install `ImagePullBackOff` error is reported
 
   If `kubectl get pods` reports `ImagePullBackOff` this means `image.repository:image.tag` values
   are specified incorrect. Verify resulting `spec.template.spec.containers[].image` in `deployment.yaml`
