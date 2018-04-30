@@ -25,6 +25,10 @@ spec:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command: [{{- range $index, $element := .Values.image.command}}
+                          {{- if $index}},{{- end}}
+                          {{- $element | quote}}
+                        {{- end}}]
               # Inject (non sensitive) environment variables from the `Values` config.
               env:
               {{- range $key, $val := .Values.nonSensitiveEnvs }}
