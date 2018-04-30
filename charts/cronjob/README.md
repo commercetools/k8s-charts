@@ -53,8 +53,8 @@ The chart can be customized using the following configurable parameters:
 | `image.repository` | docker image repository | `commercetools/commercetools-email-retry-processor` |
 | `image.tag` | docker image tag | `1.0.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
-| `image.command` | docker Entrypoint command array| `[]` |
-| `image.args` | docker Entrypoint command arguments array| `[]` |
+| `image.command` | docker Entrypoint command array. The docker image's `ENTRYPOINT` is used if this is not provided.| `[]` |
+| `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |
 | `resources` | resource requests and limits | `{}` |
 | `schedule` | schedule of the cronjob | `*/1 * * * *` |
 | `nonSensitiveEnvs` | non sensitive environment variables | |
