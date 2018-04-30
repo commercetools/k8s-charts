@@ -51,13 +51,13 @@ $ helm upgrade --install --namespace my-shop-namespace my-payment-integration -f
 
 The chart can be customized using the following configurable parameters:
 
-| Parameter                       | Description                         | Default                             |
-| ------------------------------- | ------------------------------------|-------------------------------------|
-| `image.repository`              | docker image repository             | ***mandatory***                     |
-| `image.tag`                     | docker image tag                    | ***mandatory***                     |
-| `image.pullPolicy`              | docker image pull policy            | `IfNotPresent`                      |
-| `nonSensitiveEnvs`              | non sensitive environment variables | []                                  |
-| `sensitiveEnvs`                 | sensitive environment variables     | []                                  |
+| Parameter | Description | Default |
+| --- | --- | --- |
+| `image.repository` | docker image repository | ***mandatory*** |
+| `image.tag` | docker image tag | ***mandatory*** |
+| `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
+| `nonSensitiveEnvs` | non sensitive environment variables | {} |
+| `sensitiveEnvs` | sensitive environment variables | {} |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
