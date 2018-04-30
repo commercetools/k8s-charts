@@ -23,6 +23,7 @@ spec:
     metadata:
       labels:
         app: {{ template "payment.name" . }}
+        release: {{ .Release.Name }}
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '{{ .Values.service.internalPort }}'
