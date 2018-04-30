@@ -1,0 +1,31 @@
+image:
+  repository: 'commercetools/commercetools-email-retry-processor'
+  tag: '1.0.0'
+  pullPolicy: 'IfNotPresent'
+
+## specifies the resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources: {}
+#  requests:
+#    cpu: 50m
+#    memory: 256Mi
+#  limits:
+#    cpu: 150m
+#    memory: 512Mi
+
+# specifies a Cron format string, e.g. 0 * * * * or @hourly,
+# as schedule time of its jobs to be created and executed
+schedule: '*/1 * * * *'
+
+# non sensitive environment variables
+nonSensitiveEnvs: {}
+
+# sensitive environment variables
+sensitiveEnvs: {}
+
+# specifies how to treat concurrent executions of a job created by this cron job
+concurrency: Allow
+
+# specifies how many completed and failed jobs should be kept.
+successfulJobsHistoryLimit: 5
+failedJobsHistoryLimit: 5
