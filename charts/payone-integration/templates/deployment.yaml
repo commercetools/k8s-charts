@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ template "payone.fullname" . }}
   labels:
-    app: {{ .Chart.Name }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    heritage: {{ .Release.Service }}
+    app: {{ template "payone.name" . }}
+    chart: {{ template "payone.chart" . }}
     release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   replicas: {{ default 2 .Values.replicaCount }}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ .Chart.Name }}
+      app: {{ template "payone.name" . }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Chart.Name }}
+        app: {{ template "payone.name" . }}
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '{{ .Values.service.internalPort }}'
@@ -48,7 +48,7 @@ spec:
         - name: {{ $key }}
           valueFrom:
             secretKeyRef:
-              name: {{ $chartName }}-secret
+              name: {{ template "payone.name" . }}-secret
               key: {{ $key }}
         {{- end}}
         livenessProbe:
