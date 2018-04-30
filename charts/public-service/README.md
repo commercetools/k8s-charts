@@ -100,5 +100,5 @@ $ helm upgrade --install \
 #### After service upgrade install `ImagePullBackOff` error is reported
 
   If `kubectl get pods` reports `ImagePullBackOff` this means `image.repository:image.tag` values
-  are specified incorrect. Verify resulting `spec.template.spec.containers[].image` in `deployment.yaml`
+  are specified incorrectly. Verify resulting `spec.template.spec.containers[].image` in `deployment.yaml`
   using `--dry-run --debug`
