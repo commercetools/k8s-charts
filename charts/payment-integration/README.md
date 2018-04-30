@@ -25,7 +25,7 @@ service applications
 
 This chart will do the following:
 
-* Deploy an instance of the service (_Payone_ or _Paypal_) as a DaemonSet on all nodes of a K8s cluster.
+* Deploy an instance of the service (_Payone_ or _Paypal_) as on all nodes of a K8s cluster.
 
 ### Verification
 
