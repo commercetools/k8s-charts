@@ -56,6 +56,7 @@ The chart can be customized using the following configurable parameters:
 | `image.repository` | docker image repository | ***mandatory*** |
 | `image.tag` | docker image tag | ***mandatory*** |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
+| `replicaCount` | number of desired pods | `1` |
 | `nonSensitiveEnvs` | non sensitive environment variables | {} |
 | `sensitiveEnvs` | sensitive environment variables | {} |
 

@@ -3,6 +3,8 @@ image:
   tag: ''  # set tag here
   pullPolicy: IfNotPresent
 
+replicaCount: 1
+
 service:
   type: NodePort
   externalPort: 80
