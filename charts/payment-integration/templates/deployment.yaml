@@ -26,7 +26,7 @@ spec:
         release: {{ .Release.Name }}
     spec:
       containers:
-      - name: {{ .Values.containerName }}
+      - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
