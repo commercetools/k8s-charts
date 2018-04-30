@@ -8,6 +8,8 @@
     - [Installation](#installation)
     - [Service specific mandatory environment variables](#service-specific-mandatory-environment-variables)
     - [Example](#example)
+    - [Known issues](#known-issues)
+      - [1. After service upgrade install `ImagePullBackOff` error is reported](#1-after-service-upgrade-install-imagepullbackoff-error-is-reported)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -91,7 +93,14 @@ $ helm upgrade --install \
     --namespace my-shop-namespace \
     my-payent-integration-custom-release-name \
     -f /path/to/shop/values/my-shop-staging/values.yaml \
-    -f /path/to/shop/values/my-shop-staging/secrets.yaml \
-    --set 'image.tag=v999.999.999' \
+    -f /path/to/shop/values/my-shop-staging/secrets.yaml 
     . 
 ```
+
+### Known issues
+
+#### 1. After service upgrade install `ImagePullBackOff` error is reported
+
+  If `kubectl get pods` reports `ImagePullBackOff` this means `image.repository:image.tag` values
+  are specified incorrect. Verify resulting `spec.template.spec.containers[].image` in `deployment.yaml`
+  using `--dry-run --debug`
