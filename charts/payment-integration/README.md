@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  
+
+- [Payment Integration Service Helm Chart](#payment-integration-service-helm-chart)
+  - [Chart Details](#chart-details)
+    - [Verification](#verification)
+    - [Installation](#installation)
+    - [Service specific mandatory environment variables](#service-specific-mandatory-environment-variables)
+    - [Example](#example)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Payment Integration Service Helm Chart
 
 This is the Helm Chart for:
