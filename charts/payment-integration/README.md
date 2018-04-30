@@ -1,8 +1,9 @@
-# Payone Integration Service Helm Chart
+# Payment Integration Service Helm Chart
 
-This is the Helm Chart for 
-[_commercetools Payone Integration Service_](https://github.com/commercetools/commercetools-payone-integration) 
-application 
+This is the Helm Chart for:
+  - [_commercetools Payone Integration Service_](https://github.com/commercetools/commercetools-payone-integration)
+  - [_commercetools PayPal Plus Integration Service_](https://github.com/commercetools/commercetools-paypal-plus-integration) 
+service applications
 
 
 * Kubernetes 1.8+ with beta APIs enabled
@@ -11,9 +12,7 @@ application
 
 This chart will do the following:
 
-* Deploy an instance of 
-[_commercetools Payone Integration Service_](https://github.com/commercetools/commercetools-payone-integration)
-as a DaemonSet on all nodes of a K8s cluster.
+* Deploy an instance of the service (_Payone_ or _Paypal_) as a DaemonSet on all nodes of a K8s cluster.
 
 ### Verification
 
@@ -31,26 +30,28 @@ $ helm upgrade --install --dry-run --debug my-new-chart  .
 
 ### Installation
 
-To install the chart with the release name `my-payone-integration` using a dedicated namespace(recommended):
+To install the chart with the release name `my-payment-integration` using a dedicated namespace(recommended):
 
 ```
-$ helm upgrade --install --namespace my-shop-namespace my-payone-integration -f values.yaml .
+$ helm upgrade --install --namespace my-shop-namespace my-payment-integration -f values.yaml .
 ```
 
 The chart can be customized using the following configurable parameters:
 
-| Parameter                       | Description              | Default                             |
-| ------------------------------- | -------------------------| ------------------------------------|
-| `image.repository`              | docker image repository  | `registry.hub.docker.com/sphereio/` |
-| `image.tag`                     | docker image tag         | `v2.3.1`                            |
-| `image.pullPolicy`              | docker image pull policy | `IfNotPresent`                      |
+| Parameter                       | Description                         | Default                             |
+| ------------------------------- | ------------------------------------|-------------------------------------|
+| `image.repository`              | docker image repository             | ***mandatory***                     |
+| `image.tag`                     | docker image tag                    | ***mandatory***                     |
+| `image.pullPolicy`              | docker image pull policy            | `IfNotPresent`                      |
+| `nonSensitiveEnvs`              | non sensitive environment variables |                                     |
+| `sensitiveEnvs`                 | sensitive environment variables     |                                     |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
 Alternatively a YAML file that specifies the values for the parameters can be provided like this:
 
 ```bash
-$ helm upgrade --install --namespace my-shop-namespace my-payone-integration -f values.yaml .
+$ helm upgrade --install --namespace my-shop-namespace my-payment-integration -f values.yaml .
 ```
 
 ### Service specific mandatory environment variables
@@ -74,7 +75,7 @@ Install service using custom values and secrets:
 ```bash
 $ helm upgrade --install \
     --namespace my-shop-namespace \
-    my-payone-integration-custom-release-name \
+    my-payent-integration-custom-release-name \
     -f /path/to/shop/values/my-shop-staging/values.yaml \
     -f /path/to/shop/values/my-shop-staging/secrets.yaml \
     --set 'image.tag=v999.999.999' \

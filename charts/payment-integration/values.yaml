@@ -1,9 +1,7 @@
 image:
-  repository: registry.hub.docker.com/sphereio/commercetools-payone-integration
-  tag: v2.3.1
   pullPolicy: IfNotPresent
 
-containerName: payone-integration
+containerName: payment-integration
 
 service:
   type: NodePort

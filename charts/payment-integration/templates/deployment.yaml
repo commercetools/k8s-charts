@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "payone.fullname" . }}
+  name: {{ template "payment.fullname" . }}
   labels:
-    app: {{ template "payone.name" . }}
-    chart: {{ template "payone.chart" . }}
+    app: {{ template "payment.name" . }}
+    chart: {{ template "payment.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ template "payone.name" . }}
+      app: {{ template "payment.name" . }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "payone.name" . }}
+        app: {{ template "payment.name" . }}
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '{{ .Values.service.internalPort }}'
@@ -48,7 +48,7 @@ spec:
         - name: {{ $key }}
           valueFrom:
             secretKeyRef:
-              name: {{ template "payone.name" . }}-secret
+              name: {{ template "payment.name" . }}-secret
               key: {{ $key }}
         {{- end}}
         livenessProbe:
