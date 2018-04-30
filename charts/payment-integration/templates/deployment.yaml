@@ -27,9 +27,9 @@ spec:
         prometheus.io/port: '{{ .Values.service.internalPort }}'
     spec:
       containers:
-      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+      - name: {{ .Values.containerName }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        name: {{ .Values.containerName }}
         ports:
         - name: {{ .Values.portName }}
           containerPort: {{ .Values.service.internalPort }}
