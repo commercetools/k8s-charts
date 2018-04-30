@@ -16,6 +16,7 @@ spec:
     metadata:
       labels:
         app: {{ template "logentries.name" . }}
+        daemonset: {{ template "logentries.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
