@@ -2,7 +2,8 @@ image:
   repository: 'commercetools/commercetools-email-retry-processor'
   tag: '1.0.0'
   pullPolicy: 'IfNotPresent'
-  command: [] #specifies the entry point commands to the docker container.
+  # specifies the entry point commands to the docker container.
+  command: []
 
 ## specifies the resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
