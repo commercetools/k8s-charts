@@ -11,6 +11,7 @@ spec:
   type: {{ .Values.service.type }}
   selector:
     app: {{ .Chart.Name }}
+    release: {{ .Release.Name }}
   ports:
   - port: {{ .Values.service.externalPort }}
     targetPort: {{ .Values.service.internalPort }}
