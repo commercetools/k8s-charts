@@ -2,9 +2,9 @@ image:
   repository: 'commercetools/commercetools-email-retry-processor'
   tag: '1.0.0'
   pullPolicy: 'IfNotPresent'
-  # specifies the entry point command to the docker container.
+  # specifies the entry point command to the docker container. The docker image's `ENTRYPOINT` is used if this is not provided.
   command: []
-  # specifies the arguments to the entry point to the docker container.
+  # specifies the arguments to the entry point to the docker container. The docker image's `CMD` is used if this is not provided.
   args: []
 
 ## specifies the resource requests and limits
