@@ -16,13 +16,21 @@ rollingUpdateStrategy:
 
 portName: backend-port
 
-resources:
+## specifies the resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources: {}
 #  requests:
 #    cpu: 100m
 #    memory: 300Mi
 #  limits:
 #    cpu: 100m
 #    memory: 400Mi
+
+# non sensitive environment variables
+nonSensitiveEnvs: {}
+
+# sensitive environment variables
+sensitiveEnvs: {}
 
 ingress:
   annotations: ''
