@@ -1,6 +1,6 @@
 image:
-  repository: ''  # either 'sphereio/commercetools-payone-integration' or 'commercetoolsps/commercetools-paypal-plus-integration/'
-  tag: ''  # set tag here
+  repository: 'MUST_BE_OVERRIDDEN'  # either 'sphereio/commercetools-payone-integration' or 'commercetoolsps/commercetools-paypal-plus-integration/'
+  tag: 'MUST_BE_OVERRIDDEN'  # set tag here
   pullPolicy: IfNotPresent
 
 replicaCount: 1
