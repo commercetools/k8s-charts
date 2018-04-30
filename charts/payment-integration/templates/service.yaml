@@ -10,7 +10,7 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: {{ .Chart.Name }}
+    app: {{ template "payment.name" . }}
     release: {{ .Release.Name }}
   ports:
   - port: {{ .Values.service.externalPort }}
