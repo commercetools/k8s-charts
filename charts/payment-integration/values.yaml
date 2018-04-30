@@ -17,12 +17,12 @@ rollingUpdateStrategy:
 portName: backend-port
 
 resources:
-  requests:
-    cpu: 100m
-    memory: 300Mi
-  limits:
-    cpu: 100m
-    memory: 400Mi
+#  requests:
+#    cpu: 100m
+#    memory: 300Mi
+#  limits:
+#    cpu: 100m
+#    memory: 400Mi
 
 ingress:
   annotations: ''
