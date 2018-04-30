@@ -1,15 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "service.fullname" . }}
+  name: {{ template "public-service.fullname" . }}
   labels:
-    app: {{ template "service.name" . }}
-    chart: {{ template "service.chart" . }}
+    app: {{ template "public-service.name" . }}
+    chart: {{ template "public-service.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
   backend:
-    serviceName: {{ template "service.fullname" . }}
+    serviceName: {{ template "public-service.fullname" . }}
     servicePort: {{ .Values.service.externalPort }}
