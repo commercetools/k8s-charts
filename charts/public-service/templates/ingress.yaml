@@ -1,15 +1,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "payment.fullname" . }}
+  name: {{ template "service.fullname" . }}
   labels:
-    app: {{ template "payment.name" . }}
-    chart: {{ template "payment.chart" . }}
+    app: {{ template "service.name" . }}
+    chart: {{ template "service.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
   backend:
-    serviceName: {{ template "payment.fullname" . }}
+    serviceName: {{ template "service.fullname" . }}
     servicePort: {{ .Values.service.externalPort }}

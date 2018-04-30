@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "payment.fullname" . }}
+  name: {{ template "service.fullname" . }}
   labels:
-    app: {{ template "payment.name" . }}
-    chart: {{ template "payment.chart" . }}
+    app: {{ template "service.name" . }}
+    chart: {{ template "service.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -12,7 +12,7 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: {{ template "payment.name" . }}
+      app: {{ template "service.name" . }}
       release: {{ .Release.Name }}
   strategy:
     type: RollingUpdate
@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "payment.name" . }}
+        app: {{ template "service.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -42,7 +42,7 @@ spec:
         # them from the related Secret object. This is an extra measure of security
         # to avoid having credentials displayed in plain text in the template file.
         # https://kubernetes.io/docs/concepts/configuration/secret/
-        {{- $chartName := include "payment.fullname" . -}}
+        {{- $chartName := include "service.fullname" . -}}
         {{- range $key, $val := .Values.sensitiveEnvs }}
         - name: {{ $key }}
           valueFrom:

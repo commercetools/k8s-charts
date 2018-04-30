@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "payment.fullname" . }}
+  name: {{ template "service.fullname" . }}
   labels:
-    app: {{ template "payment.name" . }}
-    chart: {{ template "payment.chart" . }}
+    app: {{ template "service.name" . }}
+    chart: {{ template "service.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: {{ template "payment.name" . }}
+    app: {{ template "service.name" . }}
     release: {{ .Release.Name }}
   ports:
   - port: {{ .Values.service.externalPort }}

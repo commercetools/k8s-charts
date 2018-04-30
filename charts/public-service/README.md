@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  
 
-- [Payment Integration Service Helm Chart](#payment-integration-service-helm-chart)
+- [Public available Service Helm Chart](#public-available-service-helm-chart)
   - [Chart Details](#chart-details)
     - [Verification](#verification)
     - [Installation](#installation)
@@ -13,12 +13,9 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Payment Integration Service Helm Chart
+# Public available Service Helm Chart
 
-This is the Helm Chart for:
-  - [_commercetools Payone Integration Service_](https://github.com/commercetools/commercetools-payone-integration)
-  - [_commercetools PayPal Plus Integration Service_](https://github.com/commercetools/commercetools-paypal-plus-integration) 
-service applications
+This is the Helm Chart for services which must be public available, like shops, payment integrations etc.
 
 
 * Kubernetes 1.8+ with beta APIs enabled
@@ -45,10 +42,10 @@ $ helm upgrade --install --dry-run --debug my-new-chart  .
 
 ### Installation
 
-To install the chart with the release name `my-payment-integration` using a dedicated namespace(recommended):
+To install the chart with the release name `my-service` using a dedicated namespace(recommended):
 
 ```
-$ helm upgrade --install --namespace my-shop-namespace my-payment-integration -f values.yaml .
+$ helm upgrade --install --namespace my-shop-namespace my-service -f values.yaml .
 ```
 
 The chart can be customized using the following configurable parameters:
@@ -67,7 +64,7 @@ Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade
 Alternatively a YAML file that specifies the values for the parameters can be provided like this:
 
 ```bash
-$ helm upgrade --install --namespace my-shop-namespace my-payment-integration -f values.yaml .
+$ helm upgrade --install --namespace my-shop-namespace my-service -f values.yaml .
 ```
 
 ### Service specific mandatory environment variables
@@ -91,7 +88,7 @@ Install service using custom values and secrets:
 ```bash
 $ helm upgrade --install \
     --namespace my-shop-namespace \
-    my-payent-integration-custom-release-name \
+    my-service-custom-release-name \
     -f /path/to/shop/values/my-shop-staging/values.yaml \
     -f /path/to/shop/values/my-shop-staging/secrets.yaml 
     . 
