@@ -1,12 +1,12 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ template "payment.fullname" . }}
   labels:
-    app: {{ .Chart.Name }}
-    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-    heritage: {{ .Release.Service }}
+    app: {{ template "payment.name" . }}
+    chart: {{ template "payment.chart" . }}
     release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
