@@ -1,4 +1,4 @@
-config:
+nonSensitiveEnvs:
 #  TENANTS: 'TENANT_NAME'
 #  TENANT_NAME_UPDATE_ORDER_PAYMENT_STATE: 'true'
 #  TENANT_NAME_PAYONE_MODE: 'live'
