@@ -53,8 +53,8 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter | Description | Default |
 | --- | --- | --- |
-| `image.repository` | docker image repository | ***mandatory*** |
-| `image.tag` | docker image tag | ***mandatory*** |
+| `image.repository` | docker image repository | `commercetoolsps/commercetools-paypal-plus-integration` |
+| `image.tag` | docker image tag | `v0.4.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
