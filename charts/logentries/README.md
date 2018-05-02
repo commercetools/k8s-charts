@@ -1,7 +1,17 @@
 # logentries Helm Chart
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-## Pre Requisites:
+
+- [Prerequisites](#prerequisites)
+- [Chart Details](#chart-details)
+  - [Verification](#verification)
+  - [Installation](#installation)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Prerequisites
 
 * Kubernetes 1.8+ with beta APIs enabled
 
