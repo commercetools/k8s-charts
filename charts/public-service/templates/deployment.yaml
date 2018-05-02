@@ -18,6 +18,7 @@ spec:
     rollingUpdate:
 {{ toYaml .Values.rollingUpdateStrategy | indent 6 }}
   minReadySeconds: 5
+  minReadySeconds: {{ .Values.minReadySeconds }}
   template:
     metadata:
       labels:

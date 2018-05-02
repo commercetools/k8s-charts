@@ -15,6 +15,9 @@ rollingUpdateStrategy:
   maxUnavailable: 0
 
 portName: backend-port
+## specifies the minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available.
+## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#min-ready-seconds
+minReadySeconds: 5
 
 ## specifies the resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
