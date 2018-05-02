@@ -1,12 +1,12 @@
 image:
   repository: 'commercetoolsps/commercetools-paypal-plus-integration'
   tag: 'v0.4.0'
-  pullPolicy: IfNotPresent
+  pullPolicy: 'IfNotPresent'
 
 replicaCount: 1
 
 service:
-  type: ClusterIP
+  type: 'ClusterIP'
   externalPort: 80
   internalPort: 8080
 
@@ -44,7 +44,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - payment-integration.local
+    - 'payment-integration.local'
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
