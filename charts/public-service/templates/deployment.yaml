@@ -27,7 +27,7 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - name: 'backend-port'
+        - name: http
           containerPort: {{ .Values.containerPort }}
         # Inject (non sensitive) environment variables from the `Values` config.
         env:
