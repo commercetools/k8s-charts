@@ -1,0 +1,77 @@
+image:
+  repository: 'commercetoolsps/commercetools-paypal-plus-integration'
+  tag: 'v0.4.0'
+  pullPolicy: 'IfNotPresent'
+
+replicaCount: 1
+
+service:
+  type: 'ClusterIP'
+  port: 80
+
+## specifies the port to access the application within the container.
+containerPort: 8080
+
+## specifies the strategy used to replace old Pods by new ones.
+## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
+updateStrategy:
+  type: 'RollingUpdate'
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+## specifies the minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available.
+## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#min-ready-seconds
+minReadySeconds: 5
+
+## specifies the resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+resources: {}
+#  requests:
+#    cpu: 100m
+#    memory: 300Mi
+#  limits:
+#    cpu: 100m
+#    memory: 400Mi
+
+## non sensitive environment variables
+nonSensitiveEnvs: {}
+
+## sensitive environment variables
+sensitiveEnvs: {}
+
+## Ingress annotations
+##
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: '/'
+  hosts:
+    - 'payment-integration.local'
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+## specifies the configuration for liveness and readiness probes
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
+livenessProbe:
+  httpGet:
+    path: '/health'
+    port: 'backend-port'
+  initialDelaySeconds: 15
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+readinessProbe:
+  httpGet:
+    path: '/health'
+    port: 'backend-port'
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
