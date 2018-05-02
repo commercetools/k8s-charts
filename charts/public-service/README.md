@@ -57,6 +57,9 @@ The chart can be customized using the following configurable parameters:
 | `image.tag` | docker image tag | `v0.4.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
+| `updateStrategy.type` | strategy used to replace old Pods by new ones. | `RollingUpdate` |
+| `updateStrategy.rollingUpdate.maxSurge` | maximum number of Pods that can be created over the desired number of Pods. | `1` |
+| `updateStrategy.rollingUpdate.maxUnavailable` | maximum number of Pods that can be unavailable during the update process. | `0` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
 | `nonSensitiveEnvs` | non sensitive environment variables | `{}` |
 | `sensitiveEnvs` | sensitive environment variables | `{}` |

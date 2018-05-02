@@ -10,9 +10,13 @@ service:
   externalPort: 80
   internalPort: 8080
 
-rollingUpdateStrategy:
-  maxSurge: 1
-  maxUnavailable: 0
+## specifies the strategy used to replace old Pods by new ones.
+## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
+updateStrategy:
+  type: 'RollingUpdate'
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
 
 portName: backend-port
 ## specifies the minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available.

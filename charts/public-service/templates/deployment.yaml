@@ -14,10 +14,7 @@ spec:
       app: {{ template "public-service.name" . }}
       release: {{ .Release.Name }}
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-{{ toYaml .Values.rollingUpdateStrategy | indent 6 }}
-  minReadySeconds: 5
+{{ toYaml .Values.updateStrategy | indent 6 }}
   minReadySeconds: {{ .Values.minReadySeconds }}
   template:
     metadata:
