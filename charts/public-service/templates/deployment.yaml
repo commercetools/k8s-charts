@@ -28,7 +28,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: 'backend-port'
-          containerPort: {{ .Values.service.internalPort }}
+          containerPort: {{ .Values.containerPort }}
         # Inject (non sensitive) environment variables from the `Values` config.
         env:
         {{- range $key, $val := .Values.nonSensitiveEnvs }}
