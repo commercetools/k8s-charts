@@ -9,7 +9,6 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: {{ template "public-service.name" . }}
