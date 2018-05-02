@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ template "cronjob.name" . }}
+  name: {{ template "cronjob.fullname" . }}
   labels:
     app: {{ template "cronjob.name" . }}
     chart: {{ template "cronjob.chart" . }}
@@ -39,7 +39,7 @@ spec:
               # them from the related Secret object. This is an extra measure of security
               # to avoid having credentials displayed in plain text in the template file.
               # https://kubernetes.io/docs/concepts/configuration/secret/
-              {{- $chartName := include "cronjob.name" . -}}
+              {{- $chartName := include "cronjob.fullname" . -}}
               {{- range $key, $val := .Values.sensitiveEnvs }}
               - name: {{ $key }}
                 valueFrom:
