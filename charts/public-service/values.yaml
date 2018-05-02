@@ -32,10 +32,10 @@ resources: {}
 #    cpu: 100m
 #    memory: 400Mi
 
-# non sensitive environment variables
+## non sensitive environment variables
 nonSensitiveEnvs: {}
 
-# sensitive environment variables
+## sensitive environment variables
 sensitiveEnvs: {}
 
 ## Ingress annotations
