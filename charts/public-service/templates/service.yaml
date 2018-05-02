@@ -14,6 +14,6 @@ spec:
     release: {{ .Release.Name }}
   ports:
   - port: {{ .Values.service.port }}
-    targetPort: containerPortName
+    targetPort: container-port
     protocol: TCP
-    name: servicePortName
+    name: service-port
