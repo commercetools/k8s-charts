@@ -57,26 +57,35 @@ The chart can be customized using the following configurable parameters:
 | `image.tag` | docker image tag | `v0.4.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
+| `service.type` | type of the service. | `ClusterIP` |
+| `service.externalPort` | port to access the service externally. | `80` |
+| `service.internalPort` | target port of the container | `8080` |
 | `updateStrategy.type` | strategy used to replace old Pods by new ones. | `RollingUpdate` |
 | `updateStrategy.rollingUpdate.maxSurge` | maximum number of Pods that can be created over the desired number of Pods. | `1` |
 | `updateStrategy.rollingUpdate.maxUnavailable` | maximum number of Pods that can be unavailable during the update process. | `0` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
+| `resources` | resource requests and limits | `{}` |
 | `nonSensitiveEnvs` | non sensitive environment variables | `{}` |
 | `sensitiveEnvs` | sensitive environment variables | `{}` |
-| `livenessProbe.httpGet.path` | Path to access on the HTTP server. | `/health` |
-| `livenessProbe.httpGet.port` | Name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
-| `livenessProbe.initialDelaySeconds` | Delay before liveness probe is initiated. | `15` |
-| `livenessProbe.periodSeconds` | How often to perform the probe. | `10` |
-| `livenessProbe.timeoutSeconds` | When the probe times out. | `5` |
-| `livenessProbe.successThreshold` | Minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
-| `livenessProbe.failureThreshold` | Minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
-| `readinessProbe.httpGet.path` | Path to access on the HTTP server. | `/health` |
-| `readinessProbe.httpGet.port` | Name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
-| `readinessProbe.initialDelaySeconds`| Delay before readiness probe is initiated. | `5` |
-| `readinessProbe.periodSeconds` | How often to perform the probe. | `10` |
-| `readinessProbe.timeoutSeconds` | When the probe times out. | `5` |
-| `readinessProbe.successThreshold` | Minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
-| `readinessProbe.failureThreshold` | Minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
+| `ingress.path` | enables Ingress | `false` |
+| `ingress.annotations` | ingress path | `/` |
+| `ingress.annotations` | ingress annotations | `{}` |
+| `ingress.hosts` | ingress accepted hostnames | `['payment-integration.local']` |
+| `ingress.tls` | ingress TLS configuration | `[]` |
+| `livenessProbe.httpGet.path` | path to access on the HTTP server. | `/health` |
+| `livenessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `livenessProbe.initialDelaySeconds` | delay before liveness probe is initiated. | `15` |
+| `livenessProbe.periodSeconds` | how often to perform the probe. | `10` |
+| `livenessProbe.timeoutSeconds` | when the probe times out. | `5` |
+| `livenessProbe.successThreshold` | minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
+| `livenessProbe.failureThreshold` | minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
+| `readinessProbe.httpGet.path` | path to access on the HTTP server. | `/health` |
+| `readinessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `readinessProbe.initialDelaySeconds`| delay before readiness probe is initiated. | `5` |
+| `readinessProbe.periodSeconds` | how often to perform the probe. | `10` |
+| `readinessProbe.timeoutSeconds` | when the probe times out. | `5` |
+| `readinessProbe.successThreshold` | minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
+| `readinessProbe.failureThreshold` | minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
