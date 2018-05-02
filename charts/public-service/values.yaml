@@ -7,8 +7,10 @@ replicaCount: 1
 
 service:
   type: 'ClusterIP'
-  externalPort: 80
-  internalPort: 8080
+  port: 80
+
+## specifies the port to access the application within the container.
+containerPort: 8080
 
 ## specifies the strategy used to replace old Pods by new ones.
 ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
