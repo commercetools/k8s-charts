@@ -16,4 +16,4 @@ spec:
   - port: {{ .Values.service.port }}
     targetPort: containerPortName
     protocol: TCP
-    name: http
+    name: servicePortName
