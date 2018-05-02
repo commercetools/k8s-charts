@@ -57,6 +57,7 @@ The chart can be customized using the following configurable parameters:
 | `image.tag` | docker image tag | ***mandatory*** |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
+| `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
 | `nonSensitiveEnvs` | non sensitive environment variables | {} |
 | `sensitiveEnvs` | sensitive environment variables | {} |
 
