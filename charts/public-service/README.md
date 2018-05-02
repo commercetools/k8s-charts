@@ -58,8 +58,8 @@ The chart can be customized using the following configurable parameters:
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
 | `service.type` | type of the service. | `ClusterIP` |
-| `service.externalPort` | port to access the service externally. | `80` |
-| `service.internalPort` | target port of the container | `8080` |
+| `service.port` | port to access the service. | `80` |
+| `containerPort` | port to access the application within the container. | `8080` |
 | `updateStrategy.type` | strategy used to replace old Pods by new ones. | `RollingUpdate` |
 | `updateStrategy.rollingUpdate.maxSurge` | maximum number of Pods that can be created over the desired number of Pods. | `1` |
 | `updateStrategy.rollingUpdate.maxUnavailable` | maximum number of Pods that can be unavailable during the update process. | `0` |
