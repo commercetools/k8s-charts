@@ -51,18 +51,8 @@ spec:
               key: {{ $key }}
         {{- end}}
         livenessProbe:
-          httpGet:
-            path: /health
-            port: {{ .Values.portName }}
-          initialDelaySeconds: 15
-          periodSeconds: 10
-          timeoutSeconds: 5
+{{ toYaml .Values.livenessProbe | indent 10 }}
         readinessProbe:
-          httpGet:
-            path: /health
-            port: {{ .Values.portName }}
-          initialDelaySeconds: 15
-          periodSeconds: 10
-          timeoutSeconds: 5
+{{ toYaml .Values.livenessProbe | indent 10 }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}

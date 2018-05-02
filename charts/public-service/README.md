@@ -58,8 +58,22 @@ The chart can be customized using the following configurable parameters:
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
-| `nonSensitiveEnvs` | non sensitive environment variables | {} |
-| `sensitiveEnvs` | sensitive environment variables | {} |
+| `nonSensitiveEnvs` | non sensitive environment variables | `{}` |
+| `sensitiveEnvs` | sensitive environment variables | `{}` |
+| `livenessProbe.httpGet.path` | Path to access on the HTTP server. | `/health` |
+| `livenessProbe.httpGet.port` | Name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `livenessProbe.initialDelaySeconds` | Delay before liveness probe is initiated. | `15` |
+| `livenessProbe.periodSeconds`       | How often to perform the probe. | `10` |
+| `livenessProbe.timeoutSeconds`      | When the probe times out. | `5` |
+| `livenessProbe.successThreshold`    | Minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
+| `livenessProbe.failureThreshold`    | Minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
+| `readinessProbe.httpGet.path` | Path to access on the HTTP server. | `/health` |
+| `readinessProbe.httpGet.port` | Name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `readinessProbe.initialDelaySeconds`| Delay before readiness probe is initiated. | `5` |
+| `readinessProbe.periodSeconds`      | How often to perform the probe. | `10` |
+| `readinessProbe.timeoutSeconds`     | When the probe times out. | `5` |
+| `readinessProbe.successThreshold`   | Minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
+| `readinessProbe.failureThreshold`   | Minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
