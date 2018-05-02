@@ -6,14 +6,14 @@ Helm chart for deploying an instance of a cronjob on a K8s cluster.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Pre Requisites](#pre-requisites)
+- [Prerequisites](#prerequisites)
 - [Chart Details](#chart-details)
   - [Verification](#verification)
   - [Installation](#installation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Pre Requisites
+## Prerequisites
 
 * Kubernetes 1.8+ with beta APIs enabled
 
@@ -53,6 +53,8 @@ The chart can be customized using the following configurable parameters:
 | `image.repository` | docker image repository | `commercetools/commercetools-email-retry-processor` |
 | `image.tag` | docker image tag | `1.0.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
+| `image.command` | docker Entrypoint command array. The docker image's `ENTRYPOINT` is used if this is not provided.| `[]` |
+| `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |
 | `resources` | resource requests and limits | `{}` |
 | `schedule` | schedule of the cronjob | `*/1 * * * *` |
 | `nonSensitiveEnvs` | non sensitive environment variables | |

@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: {{ template "cronjob.name" . }}
+  name: {{ template "cronjob.fullname" . }}
   labels:
     app: {{ template "cronjob.name" . }}
     chart: {{ template "cronjob.chart" . }}
@@ -23,8 +23,12 @@ spec:
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
-              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
+              command:
+{{ toYaml .Values.image.command | indent 16 }}
+              args:
+{{ toYaml .Values.image.args | indent 16 }}
               # Inject (non sensitive) environment variables from the `Values` config.
               env:
               {{- range $key, $val := .Values.nonSensitiveEnvs }}
@@ -35,7 +39,7 @@ spec:
               # them from the related Secret object. This is an extra measure of security
               # to avoid having credentials displayed in plain text in the template file.
               # https://kubernetes.io/docs/concepts/configuration/secret/
-              {{- $chartName := include "cronjob.name" . -}}
+              {{- $chartName := include "cronjob.fullname" . -}}
               {{- range $key, $val := .Values.sensitiveEnvs }}
               - name: {{ $key }}
                 valueFrom:
