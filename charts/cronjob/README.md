@@ -6,14 +6,14 @@ Helm chart for deploying an instance of a cronjob on a K8s cluster.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Pre Requisites](#pre-requisites)
+- [Prerequisites](#prerequisites)
 - [Chart Details](#chart-details)
   - [Verification](#verification)
   - [Installation](#installation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Pre Requisites
+## Prerequisites
 
 * Kubernetes 1.8+ with beta APIs enabled
 
