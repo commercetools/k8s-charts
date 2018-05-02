@@ -60,7 +60,7 @@ ingress:
 livenessProbe:
   httpGet:
     path: '/health'
-    port: 'backend-port'
+    port: 'http'
   initialDelaySeconds: 15
   periodSeconds: 10
   timeoutSeconds: 5
@@ -69,7 +69,7 @@ livenessProbe:
 readinessProbe:
   httpGet:
     path: '/health'
-    port: 'backend-port'
+    port: 'http'
   initialDelaySeconds: 5
   periodSeconds: 10
   timeoutSeconds: 5
