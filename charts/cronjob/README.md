@@ -50,13 +50,13 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter | Description | Default |
 | --- | ---| ---|
-| `image.repository` | docker image repository | `commercetools/commercetools-email-retry-processor` |
-| `image.tag` | docker image tag | `1.0.0` |
+| `image.repository` | docker image repository | `REPOSITORY` |
+| `image.tag` | docker image tag | `TAG` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `image.command` | docker Entrypoint command array. The docker image's `ENTRYPOINT` is used if this is not provided.| `[]` |
 | `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |
 | `resources` | resource requests and limits | `{}` |
-| `schedule` | schedule of the cronjob | `*/1 * * * *` |
+| `schedule` | schedule of the cronjob | `` |
 | `nonSensitiveEnvs` | non sensitive environment variables | |
 | `sensitiveEnvs` | sensitive environment variables | |
 | `concurrency` | specifies how to treat concurrent executions of a job created by this cron job | `Forbid` |

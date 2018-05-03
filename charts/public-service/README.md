@@ -53,8 +53,8 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter | Description | Default |
 | --- | --- | --- |
-| `image.repository` | docker image repository | `commercetoolsps/commercetools-paypal-plus-integration` |
-| `image.tag` | docker image tag | `v0.4.0` |
+| `image.repository` | docker image repository | `REPOSITORY` |
+| `image.tag` | docker image tag | `TAG` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
 | `service.type` | type of the service. | `ClusterIP` |
@@ -70,7 +70,7 @@ The chart can be customized using the following configurable parameters:
 | `ingress.path` | enables Ingress | `false` |
 | `ingress.annotations` | ingress path | `/` |
 | `ingress.annotations` | ingress annotations | `{}` |
-| `ingress.hosts` | ingress accepted hostnames | `['payment-integration.local']` |
+| `ingress.hosts` | ingress accepted hostnames | `['service-name.local']` |
 | `ingress.tls` | ingress TLS configuration | `[]` |
 | `livenessProbe.httpGet.path` | path to access on the HTTP server. | `/health` |
 | `livenessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
