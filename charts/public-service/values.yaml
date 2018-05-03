@@ -1,6 +1,8 @@
 image:
-  repository: 'REPOSITORY' #'commercetoolsps/commercetools-paypal-plus-integration'
-  tag: 'TAG' #'v0.4.0'
+  # 'commercetoolsps/commercetools-paypal-plus-integration'
+  repository: 'REPOSITORY'
+  # 'v0.4.0'
+  tag: 'TAG'
   pullPolicy: 'IfNotPresent'
 
 replicaCount: 1
