@@ -56,7 +56,7 @@ The chart can be customized using the following configurable parameters:
 | `image.command` | docker Entrypoint command array. The docker image's `ENTRYPOINT` is used if this is not provided.| `[]` |
 | `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |
 | `resources` | resource requests and limits | `{}` |
-| `schedule` | schedule of the cronjob | `` |
+| `schedule` | schedule of the cronjob | `*/1 * * * *` |
 | `nonSensitiveEnvs` | non sensitive environment variables | |
 | `sensitiveEnvs` | sensitive environment variables | |
 | `concurrency` | specifies how to treat concurrent executions of a job created by this cron job | `Forbid` |
