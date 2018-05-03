@@ -1,8 +1,8 @@
 image:
   # 'commercetoolsps/commercetools-paypal-plus-integration'
-  repository: 'REPOSITORY'
+  repository: 'MUST_BE_OVERRIDDEN'
   # 'v0.4.0'
-  tag: 'TAG'
+  tag: 'MUST_BE_OVERRIDDEN'
   pullPolicy: 'IfNotPresent'
 
 replicaCount: 1

@@ -1,8 +1,8 @@
 image:
   # 'commercetools/commercetools-email-retry-processor'
-  repository: 'REPOSITORY'
+  repository: 'MUST_BE_OVERRIDDEN'
   # '1.0.0'
-  tag: 'TAG'
+  tag: 'MUST_BE_OVERRIDDEN'
   pullPolicy: 'IfNotPresent'
   # specifies the entry point command to the docker container. The docker image's `ENTRYPOINT` is used if this is not provided.
   command: []
@@ -21,8 +21,7 @@ resources: {}
 
 # specifies a Cron format string, e.g. 0 * * * * or @hourly,
 # as schedule time of its jobs to be created and executed
-# '*/1 * * * *'
-schedule: ''
+schedule: '*/1 * * * *'
 
 # non sensitive environment variables
 nonSensitiveEnvs: {}

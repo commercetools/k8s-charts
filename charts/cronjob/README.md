@@ -50,8 +50,8 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter | Description | Default |
 | --- | ---| ---|
-| `image.repository` | docker image repository | `REPOSITORY` |
-| `image.tag` | docker image tag | `TAG` |
+| `image.repository` | docker image repository | `MUST_BE_OVERRIDDEN` |
+| `image.tag` | docker image tag | `MUST_BE_OVERRIDDEN` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `image.command` | docker Entrypoint command array. The docker image's `ENTRYPOINT` is used if this is not provided.| `[]` |
 | `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |

@@ -53,8 +53,8 @@ The chart can be customized using the following configurable parameters:
 
 | Parameter | Description | Default |
 | --- | --- | --- |
-| `image.repository` | docker image repository | `REPOSITORY` |
-| `image.tag` | docker image tag | `TAG` |
+| `image.repository` | docker image repository | `MUST_BE_OVERRIDDEN` |
+| `image.tag` | docker image tag | `MUST_BE_OVERRIDDEN` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `replicaCount` | number of desired pods | `1` |
 | `service.type` | type of the service. | `ClusterIP` |
