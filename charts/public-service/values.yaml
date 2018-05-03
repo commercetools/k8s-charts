@@ -1,6 +1,8 @@
 image:
-  repository: 'commercetoolsps/commercetools-paypal-plus-integration'
-  tag: 'v0.4.0'
+  # 'commercetoolsps/commercetools-paypal-plus-integration'
+  repository: 'MUST_BE_OVERRIDDEN'
+  # 'v0.4.0'
+  tag: 'MUST_BE_OVERRIDDEN'
   pullPolicy: 'IfNotPresent'
 
 replicaCount: 1
@@ -49,7 +51,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: '/*'
   hosts:
-    - 'payment-integration.local'
+    - 'service-name.local'
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

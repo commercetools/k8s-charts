@@ -1,6 +1,8 @@
 image:
-  repository: 'commercetools/commercetools-email-retry-processor'
-  tag: '1.0.0'
+  # 'commercetools/commercetools-email-retry-processor'
+  repository: 'MUST_BE_OVERRIDDEN'
+  # '1.0.0'
+  tag: 'MUST_BE_OVERRIDDEN'
   pullPolicy: 'IfNotPresent'
   # specifies the entry point command to the docker container. The docker image's `ENTRYPOINT` is used if this is not provided.
   command: []
