@@ -73,14 +73,14 @@ The chart can be customized using the following configurable parameters:
 | `ingress.hosts` | ingress accepted hostnames | `['payment-integration.local']` |
 | `ingress.tls` | ingress TLS configuration | `[]` |
 | `livenessProbe.httpGet.path` | path to access on the HTTP server. | `/health` |
-| `livenessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `livenessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `container-port` |
 | `livenessProbe.initialDelaySeconds` | delay before liveness probe is initiated. | `15` |
 | `livenessProbe.periodSeconds` | how often to perform the probe. | `10` |
 | `livenessProbe.timeoutSeconds` | when the probe times out. | `5` |
 | `livenessProbe.successThreshold` | minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
 | `livenessProbe.failureThreshold` | minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
 | `readinessProbe.httpGet.path` | path to access on the HTTP server. | `/health` |
-| `readinessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `backend-port` |
+| `readinessProbe.httpGet.port` | name or number of the port to access on the container. Number must be in the range 1 to 65535. | `container-port` |
 | `readinessProbe.initialDelaySeconds`| delay before readiness probe is initiated. | `5` |
 | `readinessProbe.periodSeconds` | how often to perform the probe. | `10` |
 | `readinessProbe.timeoutSeconds` | when the probe times out. | `5` |
