@@ -49,7 +49,7 @@ The chart can be customized using the following configurable parameters:
 | --- | ---| --- |
 | `image.name` | docker image name | `logentries` |
 | `image.repository` | docker image repository | `logentries/docker-logentries` |
-| `image.tag` | docker image tag | `0.2.0` |
+| `image.tag` | docker image tag | `0.2.1` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `logentriesToken` | token needed for the logentries set | `` |
 | `resources` | resource requests and limits | `{}` |
