@@ -52,6 +52,7 @@ The chart can be customized using the following configurable parameters:
 | `image.tag` | docker image tag | `0.2.0` |
 | `image.pullPolicy` | docker image pull policy | `IfNotPresent` |
 | `logentriesToken` | token needed for the logentries set | `` |
+| `resources` | resource requests and limits | `{}` |
 | `args` | [arguments](https://docs.logentries.com/docs/docker-logentries-container/#section-configuration) for running logentries. | `-j --no-stats --no-dockerEvents`|
 
 
