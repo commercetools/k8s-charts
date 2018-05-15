@@ -21,6 +21,8 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+{{ toYaml .Values.resources | indent 16 }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         securityContext:
           privileged: true
