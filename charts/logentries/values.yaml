@@ -1,6 +1,6 @@
 image:
   repository: 'logentries/docker-logentries'
-  tag: '0.2.0'
+  tag: '0.2.1'
   pullPolicy: 'IfNotPresent'
 
 logentriesToken: ''
@@ -10,3 +10,20 @@ args:
   - "-j"
   - "--no-stats"
   - "--no-dockerEvents"
+
+## specifies the resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+## According to K8s documentation about resources: not setting resources on a pod would render the pod as a "Best-Effort"
+## pod. "Best-Effort" pods will be treated as lowest priority. Processes in these pods are the first to get killed if
+## the system runs out of memory. These containers can use any amount of free memory in the node though. This is not
+## desirable especially when it comes to the logging container. Therefore, it is mandatory to set the resource requests
+## and limits.
+## More about resources: https://github.com/kubernetes/community/blob/master/contributors/design-proposals/node/resource-qos.md
+resources:
+  requests:
+    cpu: 'PLEASE_SPECIFY_CPU_REQUEST'
+    memory: 'PLEASE_SPECIFY_RAM_REQUEST'
+  limits:
+    cpu: 'PLEASE_SPECIFY_CPU_LIMIT'
+    memory: 'PLEASE_SPECIFY_RAM_LIMIT'
