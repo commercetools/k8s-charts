@@ -122,6 +122,18 @@ $ helm upgrade --install \
     . 
 ```
 
+### Set up static IP address
+k8s by default reserves different IP addresses after each restart. In order to have a static one, you need to manually create it.
+This IP address will be later used to create a new load balancer and can be pointed from DNS.
+1. Navigate to `Dashboard -> Networking -> VPC Network -> External IP Addresses -> Reserve a static address`
+1. Write a name for the static IP address
+1. Choose `(Global) IP address`
+1. Create the IP address
+1. Use the name of the static IP in `ingress.annotations: kubernetes.io/ingress.global-static-ip-name: 'your_ ip_address_name'`
+
+### Show your certificates
+1. Navigate to `Network Services -> Load balancing -> advanced menu -> Certificates`
+
 ### Known issues
 
 #### After service upgrade install `ImagePullBackOff` error is reported
