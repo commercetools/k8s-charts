@@ -19,6 +19,8 @@ spec:
           labels:
             app: {{ template "cronjob.name" . }}
             release: {{ .Release.Name }}
+          annotations:
+            checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
         spec:
           restartPolicy: Never
           containers:
