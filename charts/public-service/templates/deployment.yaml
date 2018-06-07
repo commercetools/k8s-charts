@@ -22,8 +22,6 @@ spec:
         app: {{ template "public-service.name" . }}
         release: {{ .Release.Name }}
       annotations:
-        # Force redeployment when external resource secrets.yaml changes
-        # Related issue: https://github.com/commercetools/k8s-charts/issues/14
         checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
     spec:
       containers:
