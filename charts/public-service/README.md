@@ -128,7 +128,7 @@ This IP address will be later used to create a new load balancer and can be poin
 1. Navigate to `Dashboard -> Networking -> VPC Network -> External IP Addresses -> Reserve a static address`
 1. Write a name for the static IP address
 1. Choose `(Global) IP address`
-1. Create the IP address
+1. Reserve the IP address
 1. Use the name of the static IP in `ingress.annotations: kubernetes.io/ingress.global-static-ip-name: 'your_ ip_address_name'`
 
 ### Show your certificates
