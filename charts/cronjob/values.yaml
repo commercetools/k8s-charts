@@ -23,9 +23,9 @@ resources: {}
 # as schedule time of its jobs to be created and executed
 schedule: '*/1 * * * *'
 
-# By default if job misses 100 times it's scheduled sucessful execution
-# (due to jobs's unexpectedly long run or temporal network error) then cronjob
-# gets stuck and do not schedule new jobs anymore. Below setting ensures
+# By default if cron job fails to trigger 100 times it's scheduled job 
+# (due to jobs's unexpectedly long run or temporal network error) then cron
+# job gets stuck and do not schedule new jobs anymore. Below setting ensures
 # that failed job executions are only counted within last 600 seconds and
 # thus not reaching the limit. For cron schedules below 1 minutes one should
 # consider to override default with lower value.
