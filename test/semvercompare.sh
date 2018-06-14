@@ -31,8 +31,8 @@ semvercompare() {
     return
   fi
 
-  semvercompareOldVer=`yaml r /tmp/Chart.yaml version`
-  semvercompareNewVer=`yaml r $1/Chart.yaml version`
+  semvercompareOldVer=`yq r /tmp/Chart.yaml version`
+  semvercompareNewVer=`yq r $1/Chart.yaml version`
 
   # Pre-releases may not be API compatible. So, when tools compare versions
   # they often skip pre-releases. vert can force looking at pre-releases by
