@@ -23,6 +23,15 @@ resources: {}
 # as schedule time of its jobs to be created and executed
 schedule: '*/1 * * * *'
 
+# By default if cron job fails to trigger 100 times it's scheduled job
+# (due to jobs's unexpectedly long run or temporal network error) then cron
+# job gets stuck and do not schedule new jobs anymore. Below setting ensures
+# that failed job executions are only counted within last 600 seconds and
+# thus not reaching the limit. For cron schedules below 1 minutes one should
+# consider to override default with lower value.
+# More info: https://github.com/kubernetes/kubernetes/pull/39608
+startingDeadlineSeconds: 600
+
 # non sensitive environment variables
 nonSensitiveEnvs: {}
 
@@ -30,7 +39,7 @@ nonSensitiveEnvs: {}
 sensitiveEnvs: {}
 
 # specifies how to treat concurrent executions of a job created by this cron job
-concurrency: Allow
+concurrency: Forbid
 
 # specifies how many completed and failed jobs should be kept.
 successfulJobsHistoryLimit: 5
