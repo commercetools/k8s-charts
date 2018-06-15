@@ -60,6 +60,6 @@ spec:
           {{- if .Values.externalConfig.enabled }}
           volumes:
             - name: {{ template "cronjob.fullname" . }}
-              configMap:
-                name: {{ template "cronjob.fullname" . }}
+              secret:
+                secretName: {{ template "cronjob.fullname" . }}-external-config-secret
           {{- end }}
