@@ -47,8 +47,8 @@ failedJobsHistoryLimit: 5
 
 externalConfig:
   enabled: false
-  path: path/to/file
-  content:
+  path: /path/to/file
+  content: |-
     {
       "your": "content"
     }
