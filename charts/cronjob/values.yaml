@@ -35,3 +35,11 @@ concurrency: Allow
 # specifies how many completed and failed jobs should be kept.
 successfulJobsHistoryLimit: 5
 failedJobsHistoryLimit: 5
+
+externalConfig:
+  enabled: false
+  path: path/to/file
+  content:
+    {
+      "your": "content"
+    }

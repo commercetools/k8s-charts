@@ -27,6 +27,11 @@ spec:
             - name: {{ .Chart.Name }}
               image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
               imagePullPolicy: {{ .Values.image.pullPolicy }}
+              {{- if .Values.externalConfig.enabled }}
+              volumeMounts:
+              - name: {{ template "cronjob.fullname" . }}
+                mountPath: {{ .Values.externalConfig.path }}
+              {{- end }}
               command:
 {{ toYaml .Values.image.command | indent 16 }}
               args:
@@ -51,3 +56,9 @@ spec:
               {{- end}}
               resources:
 {{ toYaml .Values.resources | indent 16 }}
+          {{- if .Values.externalConfig.enabled }}
+          volumes:
+            - name: {{ template "cronjob.fullname" . }}
+              configMap:
+                name: {{ template "cronjob.fullname" . }}
+          {{- end }}

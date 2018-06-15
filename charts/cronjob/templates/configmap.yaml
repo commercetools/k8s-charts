@@ -1,0 +1,13 @@
+{{- if .Values.externalConfig.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: {{ template "cronjob.fullname" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "cronjob.fullname" . }}
+data: |
+  {{ toJson .Values.externalConfig.content | indent 2 }}
+{{- end -}}
