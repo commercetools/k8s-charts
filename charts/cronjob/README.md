@@ -64,7 +64,7 @@ The chart can be customized using the following configurable parameters:
 | `successfulJobsHistoryLimit` | Cron job successfulJobsHistoryLimit | 5 |
 | `failedJobsHistoryLimit` | Cron job failedJobsHistoryLimit | 5 |
 | `externalConfig.enabled` | Enable supplying external configuration file to the cronjob | false |
-| `externalConfig.path` | Path to the external config file, which can be supplied to the cronjob | /path/to/file |
+| `externalConfig.path` | Path to the external directory which contains a configuration file. This file can be supplied to the cronjob. | /app/config |
 | `externalConfig.configFileName` | Name of the external config file, which can be supplied to the cronjob | config.json |
 | `externalConfig.content` | Any file content that will be supplied to the cronjob | { "your": "content" } |
 
