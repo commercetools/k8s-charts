@@ -9,7 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   schedule: {{ .Values.schedule | quote }}
-  {{- if eq .Values.isOnDemand true}}
+  {{- if eq .Values.isOnDemand }}
   suspend: true
   {{- end}}
   startingDeadlineSeconds: {{ .Values.startingDeadlineSeconds }}
@@ -23,7 +23,7 @@ spec:
           labels:
             app: {{ template "cronjob.name" . }}
             release: {{ .Release.Name }}
-            {{- if eq .Values.isOnDemand true}}
+            {{- if eq .Values.isOnDemand }}
             ondemand: "true"
             {{ else }}
             ondemand: "false"
