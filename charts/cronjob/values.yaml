@@ -44,3 +44,13 @@ concurrency: Forbid
 # specifies how many completed and failed jobs should be kept.
 successfulJobsHistoryLimit: 5
 failedJobsHistoryLimit: 5
+
+# enable this option if you need to supply config file to your cronjob
+externalConfig:
+  enabled: false
+  path: /app/config
+  configFileName: config.json
+  content: |-
+    {
+      "your": "content"
+    }
