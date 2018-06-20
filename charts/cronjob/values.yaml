@@ -26,7 +26,7 @@ schedule: '*/1 * * * *'
 # suspends cronjob at start
 suspend: false
 
-# on-demand jobs are suspended at start and labeled with ondemand:true label
+# on-demand jobs are suspended at start and labeled with runOnDemandOnly:true label
 runOnDemandOnly: false
 
 # By default if cron job fails to trigger 100 times it's scheduled job

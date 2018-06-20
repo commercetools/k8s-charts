@@ -26,7 +26,7 @@ spec:
             app: {{ template "cronjob.name" . }}
             release: {{ .Release.Name }}
             {{- if .Values.runOnDemandOnly }}
-            ondemand: "true"
+            runOnDemandOnly: "true"
             {{- end}}
           annotations:
             checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
