@@ -23,6 +23,12 @@ resources: {}
 # as schedule time of its jobs to be created and executed
 schedule: '*/1 * * * *'
 
+# suspends cronjob at start
+suspend: false
+
+# on-demand jobs are suspended at start and labeled with runOnDemandOnly:true label
+runOnDemandOnly: false
+
 # By default if cron job fails to trigger 100 times it's scheduled job
 # (due to jobs's unexpectedly long run or temporal network error) then cron
 # job gets stuck and do not schedule new jobs anymore. Below setting ensures

@@ -9,6 +9,11 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   schedule: {{ .Values.schedule | quote }}
+  {{- if .Values.runOnDemandOnly }}
+  suspend: true
+  {{ else if .Values.suspend }}
+  suspend: true
+  {{- end}}
   startingDeadlineSeconds: {{ .Values.startingDeadlineSeconds }}
   concurrencyPolicy: {{ .Values.concurrency }}
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
@@ -20,6 +25,9 @@ spec:
           labels:
             app: {{ template "cronjob.name" . }}
             release: {{ .Release.Name }}
+            {{- if .Values.runOnDemandOnly }}
+            runOnDemandOnly: "true"
+            {{- end}}
           annotations:
             checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
         spec:
