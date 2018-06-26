@@ -67,7 +67,7 @@ validate_chart_yaml() {
 
   echo "Validating maintainers names"
 
-  for name in $(yaml r ${1}/Chart.yaml maintainers.[*].name|cut -d " " -f2); do
+  for name in $(yq r ${1}/Chart.yaml maintainers.[*].name|cut -d " " -f2); do
     if [ $(curl -s -o /dev/null -w "%{http_code}\n" -If https://github.com/${name}) -ne 200 ]; then
       echo "Error: Sorry ${name} is not a valid GitHub account. Please use a valid GitHub account to help us communicate with you in PR/issues."
       exitCode=1

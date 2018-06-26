@@ -57,11 +57,16 @@ The chart can be customized using the following configurable parameters:
 | `image.args` | docker Entrypoint command arguments array. The docker image's `CMD` is used if this is not provided. | `[]` |
 | `resources` | resource requests and limits | `{}` |
 | `schedule` | schedule of the cronjob | `*/1 * * * *` |
+| `startingDeadlineSeconds` | By default if cron job fails to trigger 100 times it's scheduled job (due to jobs's unexpectedly long run or temporal network error) then cron job gets stuck and do not schedule new jobs anymore. This setting ensures that failed job executions are only counted within last 600 seconds and thus not reaching the limit. For cron schedules below 1 minutes one should consider to override default with lower value. More info: https://github.com/kubernetes/kubernetes/pull/39608 | 600 |
 | `nonSensitiveEnvs` | non sensitive environment variables | |
 | `sensitiveEnvs` | sensitive environment variables | |
 | `concurrency` | specifies how to treat concurrent executions of a job created by this cron job | `Forbid` |
 | `successfulJobsHistoryLimit` | Cron job successfulJobsHistoryLimit | 5 |
 | `failedJobsHistoryLimit` | Cron job failedJobsHistoryLimit | 5 |
+| `externalConfig.enabled` | Enable supplying external configuration file to the cronjob | false |
+| `externalConfig.path` | Path to the external directory which contains a configuration file. This file can be supplied to the cronjob. | /app/config |
+| `externalConfig.configFileName` | Name of the external config file, which can be supplied to the cronjob | config.json |
+| `externalConfig.content` | Any file content that will be supplied to the cronjob | { "your": "content" } |
 
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`

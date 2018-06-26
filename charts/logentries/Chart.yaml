@@ -1,7 +1,8 @@
+name: logentries
 apiVersion: v1
 description: Helm chart for deploying an instance of logentries as a DaemonSet on all nodes of a K8s cluster.
-name: logentries
-version: 1.2.2
+icon: https://d1cnss1t6ao97n.cloudfront.net/mstatic/3eb3f9c/content/uploads/2015/10/logentries-logo.png
+version: 1.2.3
 appVersion: 0.2.1
 home: https://github.com/rapid7/docker-logentries
 sources:
