@@ -1,0 +1,61 @@
+# example of travis script for building and deploying a cronjob based on the cronjob template
+# of the commercetools k8s-charts project
+language: node_js
+node_js:
+- 8
+before_install:
+  - npm i -g npm@^6.1.0
+  - ./travis-build/k8s-charts-clone.sh $CHARTS_DIR || travis_terminate 1
+before_script:
+  - npm prune
+before_cache:
+  - $CI_SCRIPTS/gcloud-install-sdk.sh || travis_terminate 1
+services:
+- docker
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - REGISTRY_NAME="your-docker-registry"
+  - GCLOUD_PROJECT_ID="your-google-cloud-project-id"
+  - GCLOUD_HOME="$HOME/google-cloud-sdk"
+  - GCLOUD_PATH_APPLY="$GCLOUD_HOME/path.bash.inc"
+  - GCLOUD_ZONE="your-google-cloud-zone"
+  - GCLOUD_CLUSTER_NAME_PREFIX="your-google-cloud-name-prefix"
+  - GCLOUD_KEYRING_PREFIX="your-google-cloud-keyring-prefix"
+  - DOCKER_TAG=${TRAVIS_TAG:-$COMMIT}
+  - HELM_HOME="$HOME/helm"
+  - HELM_VERSION="v2.8.2"
+  - HELM_CHARTS_REPO="https://github.com/commercetools/k8s-charts.git"
+  - HELM_VALUES_DIR="./k8s"
+  - HELM_CHARTS_VERSION="1.6.0"
+  - HELM_CHART_TEMPLATE_NAME="cronjob"
+  - CHARTS_DIR="$HOME/chart-templates"
+  - CI_SCRIPTS="$CHARTS_DIR/ci-examples/travis-gke/scripts"
+  - PROJECT_NAME="your-project-name" 
+install:
+  - npm install
+script:
+  - npm test
+cache:
+  directories:
+    - $GCLOUD_HOME/
+    - "node_modules"
+before_deploy:
+  # include gcloud PATH and variables across all scripts
+  - docker build -t $PROJECT_NAME .
+  - . "$GCLOUD_PATH_APPLY"
+  - export PATH="$PATH:$HELM_HOME"
+  - $CI_SCRIPTS/gcloud-login.sh || travis_terminate 1
+  - $CI_SCRIPTS/gcloud-push-image.sh || travis_terminate 1
+deploy:
+  - provider: script
+    script: bash $CI_SCRIPTS/gcloud-deploy.sh "staging"
+    on:
+      branch: master
+  - provider: script
+    script: bash $CI_SCRIPTS/gcloud-deploy.sh "production"
+    on:
+      tags: true
+      condition: "$TRAVIS_TAG =~ ^v[0-9]+.[0-9]+.[0-9]+"
+notifications:
+  email: false
