@@ -6,6 +6,7 @@ Travis scripts examples for building and deploying an application in GKE (Google
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Prerequisites](#prerequisites)
 - [Scripts](#scripts)
   - [How to use the scripts](#how-to-use-the-scripts)
@@ -13,6 +14,7 @@ Travis scripts examples for building and deploying an application in GKE (Google
   - [gcloud-login.sh](#gcloud-loginsh)
   - [k8s-charts-clone.sh](#k8s-charts-clonesh)
   - [decrypt.sh](#decryptsh)
+  - [encrypt.sh](#encryptsh)
   - [gcloud-push-image.sh](#gcloud-push-imagesh)
   - [gcloud-deploy.sh](#gcloud-deploysh)
   - [helm-upgrade.sh](#helm-upgradesh)
@@ -31,6 +33,7 @@ Travis scripts examples for building and deploying an application in GKE (Google
  - gcloud-login.sh: script for logging in Google Cloud Platform
  - k8s-charts-clone.sh: pulls the charts from the [k8s-charts project](https://github.com/commercetools/k8s-charts) 
  - decrypt.sh: decrypts the secrets.yaml.enc file that includes all sensitive variables
+ - encrypt.sh: encrypts the secrets.yaml file that includes all sensitive variables to secrets.yaml.enc file
  - gcloud-push-image.sh: pushes the Docker image in defined the Google Cloud container registry
  - gcloud-deploy.sh: deploys the application in the Google Cloud cluster
  - helm-upgrade.sh upgrades the Helm chart template  
@@ -111,6 +114,34 @@ $ export PROJECT_NAME=dummy-project-name
 $ export GCLOUD_PROJECT_ID=dummy-project-id
 $ export HELM_VALUES_DIR=/k8s
 $ ./decrypt.sh
+```
+
+### encrypt.sh
+This script encrypts the secrets.yaml file that includes all sensitive variables to secrets.yaml.enc file. The secrets.yaml should be set in the following path HELM_VALUES_DIR/ENVIRONMENT_NAME/secrets.yaml
+
+It uses Google Cloud Key Management Service (KMS), and it's based on the following conventions:
+
+ - key ring naming convention:
+   GCLOUD_KEYRING_PREFIX-keyring-ENVIRONMENT_NAME.  i.e
+   myproject-keyring-staging 
+   
+ - key naming convention: PROJECT_NAME-key-ENVIRONMENT_NAME. i.e myproject-key-staging
+
+It needs the following environment variables to be set: 
+
+GCLOUD_KEYRING_PREFIX: prefix of your Google key ring
+ENVIRONMENT_NAME: environment you want to encrypt its variables
+PROJECT_NAME:  your project name
+GCLOUD_PROJECT_ID: your Google Cloud project ID
+HELM_VALUES_DIR: directory with your Helm values files
+
+```
+$ export GCLOUD_KEYRING_PREFIX=dummy-project
+$ export ENVIRONMENT_NAME=production
+$ export PROJECT_NAME=dummy-project-name
+$ export GCLOUD_PROJECT_ID=dummy-project-id
+$ export HELM_VALUES_DIR=/k8s
+$ ./encrypt.sh
 ```
 
 ### gcloud-push-image.sh
