@@ -8,8 +8,7 @@ image:
 replicaCount: 1
 
 service:
-  type: 'ClusterIP'
-  port: 80
+  type: 'NodePort'
 
 ## specifies the port to access the application within the container.
 containerPort: 8080
