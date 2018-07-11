@@ -7,7 +7,7 @@ image:
 
 replicaCount: 1
 
-# specifies that application is accessible outside of the container
+# specifies that application is accessible outside the container
 service:
   type: 'NodePort'
 
