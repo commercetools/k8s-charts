@@ -23,5 +23,5 @@ helm upgrade --install "$APPLICATION_NAME" --namespace "$ENVIRONMENT_NAME" \
     $(execOptionIfFileExistsAndIsReadable "$COMMON_INSENSITIVE_ENVS_FILE" "-f") \
     $(execOptionIfFileExistsAndIsReadable "$ENVIRONMENT_SPECIFIC_INSENSITIVE_ENVS_FILE" "-f") \
     $(execOptionIfFileExistsAndIsReadable "$SENSITIVE_ENVS_FILE" "-f") \
-    $( if [[ -n $IMAGE_TAG ]]; then printf "%s" "--set image.tag=${IMAGE_TAG}"; fi ) \
+    $( if [[ -n $IMAGE_TAG ]]; then printf "%s" "--set-string image.tag=${IMAGE_TAG}"; fi ) \
     "$CHARTS_DIR/$HELM_CHART_TEMPLATE_NAME/"
