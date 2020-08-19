@@ -69,6 +69,7 @@ The chart can be customized using the following configurable parameters:
 | `externalConfig.path` | Path to the external directory which contains a configuration file. This file can be supplied to the cronjob. | /app/config |
 | `externalConfig.configFileName` | Name of the external config file, which can be supplied to the cronjob | config.json |
 | `externalConfig.content` | Any file content that will be supplied to the cronjob | { "your": "content" } |
+| `activeDeadlineSeconds` | Set an active deadline for a pod in a job. See [k8s docs](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-termination-and-cleanup) for more info. | |
 
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`

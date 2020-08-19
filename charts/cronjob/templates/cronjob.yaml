@@ -31,6 +31,9 @@ spec:
           annotations:
             checksum/config: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
         spec:
+          {{- if .Values.activeDeadlineSeconds }}
+          activeDeadlineSeconds: {{ .Values.activeDeadlineSeconds }}
+          {{- end}}
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
