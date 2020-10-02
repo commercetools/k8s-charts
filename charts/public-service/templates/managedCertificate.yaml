@@ -1,0 +1,16 @@
+{{- if .Values.managecertificate.enabled -}}
+apiVersion: networking.gke.io/v1beta2
+kind: ManagedCertificate
+metadata:
+  name: {{ .Values.managecertificate.name }}
+  labels:
+    app: {{ template "public-service.name" . }}
+    chart: {{ template "public-service.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  {{- with .Values.managecertificate.domains }}
+  domains:
+  {{ toYaml . | indent 4 }}
+  {{- end }}
+{{- end }}

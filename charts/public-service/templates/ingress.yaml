@@ -1,7 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "public-service.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1beta1 
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -35,4 +35,13 @@ spec:
               serviceName: {{ $fullName }}
               servicePort: service-port
   {{- end }}
+  {{- if not  .Values.ingress.hosts }}
+    - http:
+        paths:
+          - path: {{ $ingressPath }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: service-port
+
+{{- end }}
 {{- end }}
