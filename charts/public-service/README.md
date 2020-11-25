@@ -65,6 +65,7 @@ The chart can be customized using the following configurable parameters:
 | `updateStrategy.rollingUpdate.maxUnavailable` | maximum number of Pods that can be unavailable during the update process. | `0` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
 | `resources` | resource requests and limits | `{}` |
+| `affinity.enabled` | if true, pods will be on different nodes | `false` |
 | `nonSensitiveEnvs` | non sensitive environment variables | `{}` |
 | `sensitiveEnvs` | sensitive environment variables | `{}` |
 | `ingress.path` | enables Ingress | `false` |

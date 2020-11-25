@@ -78,3 +78,7 @@ readinessProbe:
   timeoutSeconds: 5
   successThreshold: 1
   failureThreshold: 5
+
+## enable/disable affinity rules for k8 component scheduling
+affinity:
+  enabled: false
