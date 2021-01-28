@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Install Helm
-HELM_LATEST_VERSION="v2.16.7"
+HELM_LATEST_VERSION="v2.17.0"
 
 wget https://get.helm.sh/helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 tar -xvf helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
@@ -23,10 +23,8 @@ rm -f helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 rm -rf linux-amd64
 
 # Setup Helm so that it will work with helm dep commands. Only the client
-# needs to be setup. In addition, the incubator repo needs to be
-# available for charts that depend on it.
-helm init -c
-helm repo add incubator https://charts.helm.sh/incubator/
+# needs to be setup(-c).
+helm init -c --skip-repos
 
 # Install A YAML Linter
 # Pinning to a version for consistency
