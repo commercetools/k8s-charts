@@ -16,7 +16,7 @@
 # Install Helm
 HELM_LATEST_VERSION="v3.5.0"
 
-wget http://storage.googleapis.com/kubernetes-helm/helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
+wget https://get.helm.sh/helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 tar -xvf helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin
 rm -f helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
