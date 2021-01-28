@@ -88,4 +88,4 @@ affinity:
 pdb:
   enabled: false
   spec:
-    maxUnavailable: "50%"
+    maxUnavailable: "10%"
