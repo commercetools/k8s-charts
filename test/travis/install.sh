@@ -26,7 +26,7 @@ rm -rf linux-amd64
 # needs to be setup. In addition, the incubator repo needs to be
 # available for charts that depend on it.
 helm init -c
-helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+helm repo add incubator https://charts.helm.sh/incubator/
 
 # Install A YAML Linter
 # Pinning to a version for consistency
