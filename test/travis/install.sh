@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Install Helm
-HELM_LATEST_VERSION="v3.5.0"
+HELM_LATEST_VERSION="v2.16.7"
 
 wget https://get.helm.sh/helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 tar -xvf helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
