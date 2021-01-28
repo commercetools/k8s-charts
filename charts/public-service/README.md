@@ -87,7 +87,7 @@ The chart can be customized using the following configurable parameters:
 | `readinessProbe.timeoutSeconds` | when the probe times out. | `5` |
 | `readinessProbe.successThreshold` | minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
 | `readinessProbe.failureThreshold` | minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
-| `pdb.spec.maxUnavailable` | number of unhealthy replicas allowed at most during voluntary pod eviction among the total number of desired replicas. | `50%` |
+| `pdb.spec.maxUnavailable` | number of unhealthy replicas allowed at most during voluntary pod eviction among the total number of desired replicas. | `10%` |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
