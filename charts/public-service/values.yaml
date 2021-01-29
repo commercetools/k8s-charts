@@ -82,3 +82,10 @@ readinessProbe:
 ## enable/disable affinity rules for k8 component scheduling
 affinity:
   enabled: false
+
+## Pod Disruption Budget definition
+## ref: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/
+pdb:
+  enabled: false
+  spec:
+    maxUnavailable: "10%"
