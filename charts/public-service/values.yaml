@@ -89,3 +89,7 @@ pdb:
   enabled: false
   spec:
     maxUnavailable: "10%"
+
+# Google managed certificates for publicly exposed services
+managecertificate:
+  enabled: false
