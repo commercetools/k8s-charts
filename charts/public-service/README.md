@@ -65,6 +65,7 @@ The chart can be customized using the following configurable parameters:
 | `updateStrategy.rollingUpdate.maxUnavailable` | maximum number of Pods that can be unavailable during the update process. | `0` |
 | `minReadySeconds` | minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available. | `5` |
 | `resources` | resource requests and limits | `{}` |
+| `affinity.enabled` | if true, k8s will try its best to create pods on different nodes. | `false` |
 | `nonSensitiveEnvs` | non sensitive environment variables | `{}` |
 | `sensitiveEnvs` | sensitive environment variables | `{}` |
 | `ingress.path` | enables Ingress | `false` |
@@ -86,6 +87,7 @@ The chart can be customized using the following configurable parameters:
 | `readinessProbe.timeoutSeconds` | when the probe times out. | `5` |
 | `readinessProbe.successThreshold` | minimum consecutive successes for the probe to be considered successful after having failed. | `1` |
 | `readinessProbe.failureThreshold` | minimum consecutive failures for the probe to be considered failed after having succeeded. | `5` |
+| `pdb.spec.maxUnavailable` | number of unhealthy replicas allowed at most during voluntary pod eviction among the total number of desired replicas. | `10%` |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 

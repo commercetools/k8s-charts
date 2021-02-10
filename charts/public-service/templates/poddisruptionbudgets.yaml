@@ -1,0 +1,16 @@
+{{- if .Values.pdb.enabled -}}
+{{- $fullName := include "public-service.fullname" . -}}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ $fullName }}
+  labels:
+    app: {{ template "public-service.name" . }}
+    chart: {{ template "public-service.chart" . }}
+    release: {{ .Release.Name }}
+spec:
+  maxUnavailable: {{ .Values.pdb.spec.maxUnavailable }}
+  selector:
+    matchLabels:
+      app: {{ template "public-service.name" . }}
+{{- end }}
