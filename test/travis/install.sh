@@ -22,10 +22,6 @@ sudo mv linux-amd64/helm /usr/local/bin
 rm -f helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
 rm -rf linux-amd64
 
-# Setup Helm so that it will work with helm dep commands. Only the client
-# needs to be setup(-c).
-#helm init -c --skip-repos
-
 # Install A YAML Linter
 # Pinning to a version for consistency
 sudo pip install yamllint==1.8.1
