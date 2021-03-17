@@ -24,7 +24,7 @@ rm -rf linux-amd64
 
 # Setup Helm so that it will work with helm dep commands. Only the client
 # needs to be setup(-c).
-helm init -c --skip-repos
+#helm init -c --skip-repos
 
 # Install A YAML Linter
 # Pinning to a version for consistency
