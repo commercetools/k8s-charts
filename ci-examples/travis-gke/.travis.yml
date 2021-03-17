@@ -24,7 +24,7 @@ env:
   - GCLOUD_KEYRING_PREFIX="your-google-cloud-keyring-prefix"
   - DOCKER_TAG=${TRAVIS_TAG:-$COMMIT}
   - HELM_HOME="$HOME/helm"
-  - HELM_VERSION="v2.8.2"
+  - HELM_VERSION="v3.5.2"
   - HELM_CHARTS_REPO="https://github.com/commercetools/k8s-charts.git"
   - HELM_VALUES_DIR="./k8s"
   - HELM_CHARTS_VERSION="1.6.0"
