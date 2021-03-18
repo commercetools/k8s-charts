@@ -53,7 +53,7 @@ HELM_VERSION: helm version that we want to be installed
 HELM_HOME: path to the directory where Helm will be installed 
 ```
 $ export GCLOUD_HOME=/gcloud
-$ export HELM_VERSION=2.8.2
+$ export HELM_VERSION=3.5.2
 $ export HELM_HOME=/helm
 $ ./gcloud-install-sdk.sh
 ```
