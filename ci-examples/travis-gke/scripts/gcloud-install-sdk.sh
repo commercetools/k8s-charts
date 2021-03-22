@@ -18,7 +18,7 @@ fi
 if [ ! -f "$HELM_HOME/helm" ]; then
   echo Installing Helm
   mkdir -p "$HELM_HOME"
-  wget -qO- https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar zxv -C "$HELM_HOME"
+  wget -qO- https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar zxv -C "$HELM_HOME"
   mv "$HELM_HOME/linux-amd64/helm" "$HELM_HOME"
   rm -rf "$HELM_HOME/linux-amd64"
 fi
