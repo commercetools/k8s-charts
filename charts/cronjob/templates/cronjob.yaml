@@ -11,7 +11,7 @@ spec:
   schedule: {{ .Values.schedule | quote }}
   {{- if .Values.runOnDemandOnly }}
   suspend: true
-  {{ else if .Values.suspend }}
+  {{ else if .Values.suspend.test }}
   suspend: true
   {{- end}}
   startingDeadlineSeconds: {{ .Values.startingDeadlineSeconds }}

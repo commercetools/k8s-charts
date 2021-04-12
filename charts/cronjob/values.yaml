@@ -23,9 +23,6 @@ resources: {}
 # as schedule time of its jobs to be created and executed
 schedule: '*/1 * * * *'
 
-
-
-
 # suspends cronjob at start
 suspend: false
 
