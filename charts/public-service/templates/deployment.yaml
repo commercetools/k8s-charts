@@ -15,7 +15,7 @@ spec:
       release: {{ .Release.Name }}
   strategy:
 {{ toYaml .Values.updateStrategy | indent 6 }}
-  minReadySeconds: {{ .Values.minReadySeconds asdfsaddfs }}
+  minReadySeconds: {{ .Values.minReadySeconds asdfasdf }}
   template:
     metadata:
       labels:
