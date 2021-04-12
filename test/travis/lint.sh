@@ -84,9 +84,10 @@ if [[ -z ${1} ]]; then
   ##
   git remote add k8s https://github.com/commercetools/k8s-charts.git
   git fetch k8s master
-  CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) charts/ | awk -F/ '{print $1"/"$2}' | uniq`
+  CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) ../../charts/ | awk -F/ '{print $1"/"$2}' | uniq`
+  pwd
   echo "asdfdsfadfsadafsdfas"
-  echo $CHANGED_FOLDERS
+  echo $(git diff --find-renames --name-only $(git merge-base k8s/master HEAD) ../../charts/)
 else
   CHANGED_FOLDERS=( ${1} "" )
 fi
