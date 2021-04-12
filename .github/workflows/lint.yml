@@ -1,0 +1,18 @@
+name: lint
+
+on: push
+
+jobs:
+  lint:
+    name: Lint k8s-charts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: serializing workflow runs
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          same-branch-only: false
+      - run: test/travis/install.sh
+      - run: test/travis/lint.sh
