@@ -17,13 +17,6 @@
 # this PR/changeset is introducing. Making sure the comparison is to the
 # upstream charts repo rather than a fork.
 
-##
-## NOTIICE:
-## Modification done for commercetools
-## - change public git repo
-## - change path test/circle to test/travis
-##
-
 exitCode=0
 
 # Run is a wrapper around the execution of functions. It captures non-zero exit
@@ -44,7 +37,7 @@ yamllinter() {
   # If a Chart.yaml file is present lint it. Otherwise report an error
   # because one should exist
   if [ -e $1/Chart.yaml ]; then
-    run yamllint -c test/travis/lintconf.yml $1/Chart.yaml
+    run yamllint -c test/lint/lintconf.yml $1/Chart.yaml
   else
     echo "Error $1/Chart.yaml file is missing"
     exitCode=1
@@ -53,7 +46,7 @@ yamllinter() {
   # If a values.yaml file is present lint it. Otherwise report an error
   # because one should exist
   if [ -e $1/values.yaml ]; then
-    run yamllint -c test/travis/lintconf.yml $1/values.yaml
+    run yamllint -c test/lint/lintconf.yml $1/values.yaml
   else
     echo "Error $1/values.yaml file is missing"
     exitCode=1
@@ -63,7 +56,7 @@ yamllinter() {
 # Validate the Chart.yaml
 validate_chart_yaml() {
 
-  run yamale -s test/travis/yaml-schemas/Chart.yaml ${1}/Chart.yaml
+  run yamale -s test/lint/yaml-schemas/Chart.yaml ${1}/Chart.yaml
 
   echo "Validating maintainers names"
 
@@ -84,7 +77,7 @@ if [[ -z ${1} ]]; then
   ##
   git remote add k8s https://github.com/commercetools/k8s-charts.git
   git fetch k8s master
-  CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) -- charts/ | awk -F/ '{print $1"/"$2}' | uniq`
+  CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) charts/ | awk -F/ '{print $1"/"$2}' | uniq`
 else
   CHANGED_FOLDERS=( ${1} "" )
 fi

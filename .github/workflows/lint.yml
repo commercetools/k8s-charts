@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: test/travis/install.sh
-      - run: test/travis/lint.sh
+      - run: test/lint/install.sh
+      - run: test/lint/lint.sh
