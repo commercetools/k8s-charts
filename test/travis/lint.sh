@@ -86,9 +86,9 @@ if [[ -z ${1} ]]; then
   git fetch k8s master
   CHANGED_FOLDERS=`git diff --find-renames --name-only $(git merge-base k8s/master HEAD) -- charts/ | awk -F/ '{print $1"/"$2}' | uniq`
   git --version
-  echo $(git merge-base k8s/master HEAD)
-  echo $(git diff --find-renames $(git merge-base k8s/master HEAD) -- charts/)
-  echo $(git diff --find-renames --name-only $(git merge-base k8s/master HEAD) -- charts/)
+  git merge-base k8s/master HEAD
+  git diff --find-renames $(git merge-base k8s/master HEAD) -- charts/
+  git diff --find-renames --name-only $(git merge-base k8s/master HEAD) -- charts/
 else
   CHANGED_FOLDERS=( ${1} "" )
 fi
