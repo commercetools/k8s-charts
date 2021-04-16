@@ -1,0 +1,15 @@
+name: lint
+
+on: push
+
+jobs:
+  lint:
+    name: Lint k8s-charts
+    runs-on: ubuntu-latest
+    steps:
+      # Check out this git repo to the build machine
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: test/lint/install.sh
+      - run: test/lint/lint.sh

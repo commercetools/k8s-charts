@@ -6,9 +6,7 @@ Static analysis is run automatically.
 
 ### Static Analysis
 
-Static analysis is performed on every pull request and is run by CircleCI. The
-configuration is stored in the [`.travis.yml`](../.travis.yml)
-file.
+Static analysis is performed on every pull request and is run by Github Actions.
 
 The static analysis currently:
 
