@@ -124,6 +124,27 @@ $ helm upgrade --install \
     . 
 ```
 
+### Set up static IP address
+k8s by default reserves a temporary external IP for a load balancer resource. When the load balancer is destroyed, the IP is also gone.
+In order to have an external IP independent on the load balancer, you need to manually create a static IP.
+This IP address will be later used when creating a new load balancer, and can be pointed from DNS.
+1. In GCP, navigate to [`Dashboard -> Networking -> VPC Network -> External IP Addresses -> Reserve a static address`](https://console.cloud.google.com/networking/addresses/add)
+1. Write a name for the static IP address
+1. Choose `(Global) IP address`
+1. Reserve the IP address
+1. Use the name of the static IP in `ingress.annotations: kubernetes.io/ingress.global-static-ip-name: 'your_ ip_address_name'`
+
+OR
+
+1. Using command: `gcloud compute addresses create [ADDRESS_NAME] --global --project [PROJECT_NAME]`
+
+### Show your certificates
+1. In GCP, Navigate to [`Network Services -> Load balancing -> advanced menu -> Certificates`](https://console.cloud.google.com/net-services/loadbalancing/advanced/sslCertificates/list)
+
+OR
+
+1. Using command: `gcloud compute ssl-certificates list --project [PROJECT_NAME]`
+
 ### Known issues
 
 #### After service upgrade install `ImagePullBackOff` error is reported
