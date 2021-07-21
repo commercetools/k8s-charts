@@ -8,7 +8,6 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  backoffLimit: {{ .Values.backoffLimit }}
   schedule: {{ .Values.schedule | quote }}
   {{- if .Values.runOnDemandOnly }}
   suspend: true
@@ -21,6 +20,7 @@ spec:
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   jobTemplate:
     spec:
+      backoffLimit: {{ .Values.backoffLimit }}
       template:
         metadata:
           labels:
