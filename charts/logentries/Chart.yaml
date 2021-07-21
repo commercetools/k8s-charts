@@ -7,5 +7,3 @@ appVersion: 0.2.1
 home: https://github.com/rapid7/docker-logentries
 sources:
   - https://github.com/rapid7/docker-logentries
-maintainers:
-  - name: heshamMassoud
