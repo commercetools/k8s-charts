@@ -8,6 +8,7 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
+  backoffLimit: {{ .Values.backoffLimit }}
   schedule: {{ .Values.schedule | quote }}
   {{- if .Values.runOnDemandOnly }}
   suspend: true
