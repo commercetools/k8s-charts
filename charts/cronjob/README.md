@@ -70,7 +70,7 @@ The chart can be customized using the following configurable parameters:
 | `externalConfig.configFileName` | Name of the external config file, which can be supplied to the cronjob | config.json |
 | `externalConfig.content` | Any file content that will be supplied to the cronjob | { "your": "content" } |
 | `activeDeadlineSeconds` | Set an active deadline for a pod in a job. See [k8s docs](https://kubernetes.io/docs/concepts/workloads/controllers/job/#job-termination-and-cleanup) for more info. | |
-
+| `backoffLimit` | By default, a Job runs uninterrupted unless there is a failure, at which point the Job defers to the `backoffLimit`. The `backoffLimit` field specifies the number of retries before marking the job as failed. | 6 |
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm install`
 

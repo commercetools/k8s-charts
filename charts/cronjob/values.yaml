@@ -60,3 +60,6 @@ externalConfig:
     {
       "your": "content"
     }
+
+# The backoffLimit field specifies the number of retries before marking the job as failed; the default value is 6.
+backoffLimit: 6
