@@ -16,4 +16,3 @@ spec:
       nodePort: {{ .Values.service.nodePort }}
   selector:
     app: {{ template "sftp-service.name" . }}
-
