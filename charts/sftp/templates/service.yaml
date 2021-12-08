@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ template "sftp-service.fullname" . }}-service
+  name: {{ template "sftp-service.fullname" . }}
   labels:
     app: {{ template "sftp-service.name" . }}
     chart: {{ template "sftp-service.chart" . }}
@@ -10,7 +10,7 @@ metadata:
 spec:
   type: 'NodePort'
   ports:
-    - name: 'ssh'
+    - name: service-port
       port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.port }}
       nodePort: {{ .Values.service.nodePort }}
