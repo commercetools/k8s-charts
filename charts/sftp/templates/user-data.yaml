@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "sftp-service.fullname" . }}-user-config
+  labels:
+    app: {{ template "sftp-service.name" . }}
+    chart: {{ template "sftp-service.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  users.conf: {{.Values.userData}}

@@ -1,0 +1,39 @@
+name: ""
+userData: ""
+
+sshConfig:
+  ssh_host_ed25519_key: ""
+  ssh_host_ed25519_key_pub: ""
+  ssh_host_rsa_key: ""
+  ssh_host_rsa_key_pub: ""
+
+service:
+  port: 22
+  nodePort: 31000
+  selector:
+    app: sftp-pod
+
+persistentVolume:
+  enabled: true
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  existingClaim: ""
+  size: 20Gi
+  # storageClass: "-"
+  subPath: ""
+
+## Ingress annotations
+##
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  path: '/*'
+  hosts:
+    - 'service-name.local'
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
