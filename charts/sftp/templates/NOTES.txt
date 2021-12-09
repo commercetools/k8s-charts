@@ -1,1 +1,2 @@
-1. Get the application URL by running these commands:
+1. Expose service using a external ip by this command:
+kubectl expose deployment {{ template "sftp-service.fullname" . }} --type=LoadBalancer --name={{ template "sftp-service.fullname" . }}-loadbalancer -n <namespace> --load-balancer-ip='<static ip>'
