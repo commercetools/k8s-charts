@@ -93,7 +93,7 @@ $ helm upgrade --install \
 
 ## Assigning a external IP to the SFTP
 
-To assign a static ip to the sftp please execute
+To assign a static ip to the SFTP, please execute the following command:
 
 ```bash
  kubectl expose deployment <service- name> --type=LoadBalancer --name=<loadbalancer nmae -n <namespace> --load-balancer-ip='<static ip>'
