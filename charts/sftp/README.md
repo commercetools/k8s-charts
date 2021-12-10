@@ -91,7 +91,7 @@ $ helm upgrade --install \
     . 
 ```
 
-## Assigning a external IP to the SFTP
+## Assigning an external IP to the SFTP
 
 To assign a static ip to the SFTP, please execute the following command:
 
