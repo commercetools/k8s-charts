@@ -78,7 +78,7 @@ $ helm upgrade --install --namespace my-shop-namespace my-service -f values.yaml
 
 Given that you are in the current kubernetes configuration directory 
 (where [Chart.yaml](Chart.yaml) and [templates/](templates/) are located).
-Commands are relative to this directory. 
+Note that, following commands are relative to the working directory:
 
 Execute following helm command to create SFTP service:
 
