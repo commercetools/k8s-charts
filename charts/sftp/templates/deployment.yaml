@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "sftp-service.fullname" . }}
+  labels:
+    app: {{ template "sftp-service.name" . }}
+    chart: {{ template "sftp-service.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "sftp-service.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "sftp-service.name" . }}
+    spec:
+      containers:
+        - name: {{ template "sftp-service.name" . }}
+          image: atmoz/sftp:latest
+          volumeMounts:
+            - name: sftp-volume
+              mountPath: /data
+            - name: config-volume
+              mountPath: /etc/sftp/
+              readOnly: true
+            - mountPath: /etc/ssh/ssh_host_ed25519_key
+              name: sftp-host-keys
+              subPath: ssh_host_ed25519_key
+              readOnly: true
+            - mountPath: /etc/ssh/ssh_host_ed25519_key.pub
+              name: sftp-host-keys
+              subPath: ssh_host_ed25519_key_pub
+              readOnly: true
+            - mountPath: /etc/ssh/ssh_host_rsa_key
+              name: sftp-host-keys
+              subPath: ssh_host_rsa_key
+              readOnly: true
+            - mountPath: /etc/ssh/ssh_host_rsa_key.pub
+              name: sftp-host-keys
+              subPath: ssh_host_rsa_key_pub
+              readOnly: true
+
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          securityContext:
+            capabilities:
+              add: ['SYS_ADMIN']
+            privileged: true
+
+      volumes:
+        - name: sftp-volume
+          persistentVolumeClaim:
+            claimName: {{ template "sftp-service.fullname" . }}-data
+        - name: config-volume
+          configMap:
+            name: {{ template "sftp-service.fullname" . }}-user-config
+        - name: sftp-host-keys
+          secret:
+            secretName: {{ template "sftp-service.fullname" . }}-host-key
+            defaultMode: 0600
