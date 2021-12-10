@@ -49,22 +49,22 @@ $ helm upgrade --install --namespace my-shop-namespace my-service -f values.yaml
 
 The chart can be customized using the following configurable parameters:
 
-|          Parameter                 |                Description                 |                   Default                   |
-| -----------------------------------| ------------------------------------------ | ------------------------------------------- |
-| `userData`                         | Content of the file 'users.conf'           | ``                                          |
-| `sshConfig.ssh_host_ed25519_key`   |  private ed25519-key                       | ``                                          | 
-| `sshConfig.ssh_host_ed25519_key_pub`| public ed25519-key                        | ``                                          | 
-| `sshConfig.ssh_host_rsa_key`       | private rsa-key                            | ``                                          | 
-| `sshConfig.ssh_host_rsa_key_pub`   | public rsa-key                             | ``                                          | 
-| `service.port`                     | Port to expose Service                     | `22`                                        |
-| `service.nodePort`                 | nodePort of the  Service                   | `31000`                                     |
-| `persistentVolume.enabled`         | If true, use persistent volume             | `true`                                      |
-| `persistentVolume.annotations`     | annotations put on the volume              | `{}`                                        |
-| `persistentVolume.accessModes`     | access modes for volume                    | `[ReadWriteOnce]`                           |
-| `persistentVolume.existingClaim`   | If set, use existing PVC                   | `""`                                        |
-| `persistentVolume.size`            | Size of volume                             | `20Gi`                                      |
-| `persistentVolume.storageClass`    | StorageClass to be used in PVC             | not set                                     |
-| `persistentVolume.subPath`         | Use subPath of existing volume             | `""`                                        |
+|          Parameter                 |                Description                 |   Default   |required|
+| -----------------------------------| ------------------------------------------ | ----------- |--------|
+| `userData`                         | Content of the file 'users.conf'           | ``|true|
+| `sshConfig.ssh_host_ed25519_key`   |  private ed25519-key                       | ``|true| 
+| `sshConfig.ssh_host_ed25519_key_pub`| public ed25519-key                        | ``|true| 
+| `sshConfig.ssh_host_rsa_key`       | private rsa-key                            | ``|true| 
+| `sshConfig.ssh_host_rsa_key_pub`   | public rsa-key                             | ``|true| 
+| `service.port`                     | Port to expose Service                     | `22` |false| 
+| `service.nodePort`                 | nodePort of the  Service                   | `31000`  |false| 
+| `persistentVolume.enabled`         | If true, use persistent volume             | `true` |false| 
+| `persistentVolume.annotations`     | annotations put on the volume              | `{}` |false| 
+| `persistentVolume.accessModes`     | access modes for volume                    | `[ReadWriteOnce]` |false| 
+| `persistentVolume.existingClaim`   | If set, use existing PVC                   | `""` |false| 
+| `persistentVolume.size`            | Size of volume                             | `20Gi` |false| 
+| `persistentVolume.storageClass`    | StorageClass to be used in PVC             | not set  |false| 
+| `persistentVolume.subPath`         | Use subPath of existing volume             | `""`    |false|  
 
 Specify parameters using `--set key=value[,key=value]` argument to `helm upgrade --install`
 
