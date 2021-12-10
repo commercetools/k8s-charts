@@ -61,7 +61,7 @@ The chart can be customized using the following configurable parameters:
 | `persistentVolume.enabled`         | If true, use persistent volume             | `true` |false| 
 | `persistentVolume.annotations`     | annotations put on the volume              | `{}` |false| 
 | `persistentVolume.accessModes`     | access modes for volume                    | `[ReadWriteOnce]` |false| 
-| `persistentVolume.existingClaim`   | If set, use existing PVC                   | `""` |false| 
+| `persistentVolume.existingClaim`   | If not set, a new persistence volume claim(PVC) is created while deployment                | `""` |false| 
 | `persistentVolume.size`            | Size of volume                             | `20Gi` |false| 
 | `persistentVolume.storageClass`    | StorageClass to be used in PVC             | not set  |false| 
 | `persistentVolume.subPath`         | Use subPath of existing volume             | `""`    |false|  
