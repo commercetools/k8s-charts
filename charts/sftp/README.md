@@ -80,7 +80,7 @@ Given that you are in the current kubernetes configuration directory
 (where [Chart.yaml](Chart.yaml) and [templates/](templates/) are located).
 Commands are relative to this directory. 
 
-Install service using custom values and secrets:
+Execute following helm command to create SFTP service:
 
 ```bash
 $ helm upgrade --install \
