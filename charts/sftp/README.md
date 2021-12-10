@@ -23,7 +23,7 @@ Helm Chart for setting up an sftp server
 
 This chart will do the following:
 
-* deploying an instance of a sftp-server on a K8s cluster.
+* Deploying an instance of a sftp-server on a K8s cluster.Hereby the deployment uses the image: [atmoz/sftp:latest](https://github.com/atmoz/sftp)
 
 ### Verification
 
